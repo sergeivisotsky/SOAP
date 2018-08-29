@@ -12,10 +12,11 @@ import java.util.List;
 @Component
 @WebService(name = "Customer", targetNamespace = "http://soap.controller.sergei.org")
 public interface CustomerWS {
-    @WebMethod
+    @WebMethod(action = "getAllCustomers")
+    @WebResult(name = "outputAllCustomers")
     List<Customer> getAllCustomers();
 
-    @WebMethod
+    @WebMethod(action = "getCustomerById")
     @WebResult(name = "outputCustomer")
     Customer getCustomerById(@WebParam(name = "inputCustomerId") Long customerId);
 }

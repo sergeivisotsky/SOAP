@@ -12,29 +12,29 @@ import java.util.List;
 @Component
 @WebService(name = "Order", targetNamespace = "http://soap.controller.sergei.org")
 public interface OrderWS {
-    @WebMethod
+    @WebMethod(action = "getAllOrders")
     @WebResult(name = "outputAllOrders")
     List<Order> getAllOrders();
 
-    @WebMethod
+    @WebMethod(action = "getAllOrdersByCustomerId")
     @WebResult(name = "outputAllOrdersByCustomerId")
     List<Order> getAllOrdersByCustomerId(@WebParam(name = "inputCustomerId") Long customerId);
 
-    @WebMethod
+    @WebMethod(action = "getAllOrdersByCustomerIdAndGood")
     @WebResult(name = "outputAllOrdersByCustomerIdAndGood")
     List<Order> getAllOrdersByCustomerIdAndGood(@WebParam(name = "inputCustomerId") Long customerId,
                                                 @WebParam(name = "inputGood") String good);
 
-    @WebMethod
+    @WebMethod(action = "getOrderById")
     @WebResult(name = "outputOrderById")
     Order getOrderById(@WebParam(name = "inputOrderId") Long orderId);
 
-    @WebMethod
+    @WebMethod(action = "getOrderByCustomerIdAndOrderId")
     @WebResult(name = "outputOrderByCustomerIdAndOrderId")
     Order getOrderByCustomerIdAndOrderId(@WebParam(name = "inputCustomerId") Long customerId,
                                          @WebParam(name = "inputOrderId") Long orderId);
 
-    @WebMethod
+    @WebMethod(action = "getOrderByGood")
     @WebResult(name = "outputOrderByGood")
     List<Order> getAllOrdersByGood(@WebParam(name = "inputOrderGood") String good);
 }

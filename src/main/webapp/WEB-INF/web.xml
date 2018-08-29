@@ -20,13 +20,13 @@
     </context-param>
 
     <servlet>
-        <servlet-name>REST_API_WELCOME</servlet-name>
+        <servlet-name>SOAP_API_WELCOME</servlet-name>
         <servlet-class>org.sergei.soap.welcome.Welcome</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>REST_API_WELCOME</servlet-name>
+        <servlet-name>SOAP_API_WELCOME</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
