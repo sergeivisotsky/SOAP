@@ -21,7 +21,7 @@
         <property name="customerService" ref="customerService" />
     </bean>
 
-    <bean id="customerService" class="org.sergei.soap.service.impls.CustomerServiceImpl" />
+    <bean id="customerService" class="org.sergei.soap.service.CustomerService" />
 
     <!--Order endpoint-->
     <wss:binding url="/v1/OrderService">
@@ -34,6 +34,6 @@
         <property name="orderService" ref="orderService" />
     </bean>
 
-    <bean id="orderService" class="org.sergei.soap.service.impls.OrderServiceImpl" />
+    <bean id="orderService" class="org.sergei.soap.service.OrderService" />
 
 </beans>

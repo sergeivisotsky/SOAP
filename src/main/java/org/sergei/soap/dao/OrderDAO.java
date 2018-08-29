@@ -1,6 +1,5 @@
-package org.sergei.soap.dao.impl;
+package org.sergei.soap.dao;
 
-import org.sergei.soap.dao.repos.OrderDAO;
 import org.sergei.soap.model.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +14,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Repository
-public class OrderDAOImpl implements OrderDAO {
+public class OrderDAO {
 
     private static final String SQL_FIND_ALL = "SELECT * FROM orders";
     private static final String SQL_FIND_BY_ID = "SELECT * FROM orders WHERE order_id = ?";
@@ -32,7 +31,6 @@ public class OrderDAOImpl implements OrderDAO {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @Override
     public List<Order> findAll() {
         try {
             return jdbcTemplate.query(SQL_FIND_ALL, new OrderRowMapper());
@@ -42,7 +40,6 @@ public class OrderDAOImpl implements OrderDAO {
         }
     }
 
-    @Override
     public Order findById(Long id) {
         try {
             return jdbcTemplate.queryForObject(SQL_FIND_BY_ID, new OrderRowMapper(), id);
@@ -52,7 +49,6 @@ public class OrderDAOImpl implements OrderDAO {
         }
     }
 
-    @Override
     public Order findByCustomerIdAndOrderId(Long customerId, Long orderId) {
         try {
             return jdbcTemplate.queryForObject(SQL_FIND_BY_CUSTOMER_ID_AND_ORDER_ID,
@@ -63,7 +59,6 @@ public class OrderDAOImpl implements OrderDAO {
         }
     }
 
-    @Override
     public List<Order> findAllByCustomerIdAndGood(Long customerId, String good) {
         try {
             return jdbcTemplate.query(SQL_FIND_BY_CUSTOMER_ID_AND_GOOD, new OrderRowMapper(), customerId, good);
@@ -73,7 +68,6 @@ public class OrderDAOImpl implements OrderDAO {
         }
     }
 
-    @Override
     public List<Order> findAllByGood(String good) {
         try {
             return jdbcTemplate.query(SQL_FIND_BY_GOOD, new OrderRowMapper(), good);
@@ -83,25 +77,21 @@ public class OrderDAOImpl implements OrderDAO {
         }
     }
 
-    @Override
     public boolean existsById(Long orderId) {
         int count = jdbcTemplate.queryForObject(SQL_EXISTS_BY_ORDER_ID, new Object[]{orderId}, Integer.class);
         return count > 0;
     }
 
-    @Override
     public boolean existsByGood(String good) {
         int count = jdbcTemplate.queryForObject(SQL_EXISTS_BY_GOOD, new Object[]{good}, Integer.class);
         return count > 0;
     }
 
-    @Override
     public boolean existsByCustomerId(Long customerId) {
         int count = jdbcTemplate.queryForObject(SQL_EXISTS_BY_CUSTOMER_ID, new Object[]{customerId}, Integer.class);
         return count > 0;
     }
 
-    @Override
     public List<Order> findAllByCustomerId(Long id) {
         return jdbcTemplate.query(SQL_FIND_ALL_BY_CUSTOMER_ID, new OrderRowMapper(), id);
     }

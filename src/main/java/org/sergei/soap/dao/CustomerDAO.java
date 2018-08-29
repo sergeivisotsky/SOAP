@@ -1,6 +1,5 @@
-package org.sergei.soap.dao.impl;
+package org.sergei.soap.dao;
 
-import org.sergei.soap.dao.repos.CustomerDAO;
 import org.sergei.soap.model.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +14,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Repository
-public class CustomerDAOImpl implements CustomerDAO {
+public class CustomerDAO {
 
     private static final String SQL_FIND_ALL = "SELECT * FROM customers";
     private static final String SQL_FIND_BY_ID = "SELECT * FROM customers WHERE customer_id = ?";
@@ -27,7 +26,6 @@ public class CustomerDAOImpl implements CustomerDAO {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @Override
     public List<Customer> findAll() {
         try {
             return jdbcTemplate.query(SQL_FIND_ALL, new CustomerRowMapper());
@@ -37,7 +35,6 @@ public class CustomerDAOImpl implements CustomerDAO {
         }
     }
 
-    @Override
     public Customer findById(Long id) {
         try {
             return jdbcTemplate.queryForObject(SQL_FIND_BY_ID, new CustomerRowMapper(), id);
@@ -47,7 +44,6 @@ public class CustomerDAOImpl implements CustomerDAO {
         }
     }
 
-    @Override
     public boolean existsById(Long customerId) {
         int count = jdbcTemplate.queryForObject(SQL_EXISTS_BY_CUSTOMER_ID, new Object[]{customerId}, Integer.class);
         return count > 0;
