@@ -10,7 +10,7 @@ import javax.jws.WebService;
 import java.util.List;
 
 @Component
-@WebService(name = "Order", targetNamespace = "http://soap.controller.sergei.org")
+@WebService(name = "Order", targetNamespace = "http://soap.sergei.org")
 public interface OrderWS {
     @WebMethod(action = "getAllOrders")
     @WebResult(name = "outputAllOrders")
