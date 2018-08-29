@@ -1,6 +1,6 @@
 package org.sergei.soap.ws.endpoint;
 
-import org.sergei.soap.persistence.pojo.Order;
+import org.sergei.soap.model.Order;
 import org.springframework.stereotype.Component;
 
 import javax.jws.WebMethod;

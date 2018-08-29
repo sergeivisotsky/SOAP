@@ -1,9 +1,9 @@
-package org.sergei.soap.persistence.service.impls;
+package org.sergei.soap.service.impls;
 
 import org.sergei.soap.exceptions.RecordNotFoundException;
-import org.sergei.soap.persistence.dao.repos.CustomerDAO;
-import org.sergei.soap.persistence.pojo.Customer;
-import org.sergei.soap.persistence.service.repos.CustomerService;
+import org.sergei.soap.dao.repos.CustomerDAO;
+import org.sergei.soap.model.Customer;
+import org.sergei.soap.service.repos.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

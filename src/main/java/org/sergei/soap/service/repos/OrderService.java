@@ -1,7 +1,6 @@
-package org.sergei.soap.persistence.service.repos;
+package org.sergei.soap.service.repos;
 
-import org.sergei.soap.persistence.pojo.Order;
-import org.springframework.http.ResponseEntity;
+import org.sergei.soap.model.Order;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

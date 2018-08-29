@@ -1,4 +1,4 @@
-package org.sergei.soap.persistence.pojo;
+package org.sergei.soap.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

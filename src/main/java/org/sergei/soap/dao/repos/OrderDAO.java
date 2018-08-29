@@ -1,6 +1,6 @@
-package org.sergei.soap.persistence.dao.repos;
+package org.sergei.soap.dao.repos;
 
-import org.sergei.soap.persistence.pojo.Order;
+import org.sergei.soap.model.Order;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

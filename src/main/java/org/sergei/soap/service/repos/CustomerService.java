@@ -1,6 +1,6 @@
-package org.sergei.soap.persistence.service.repos;
+package org.sergei.soap.service.repos;
 
-import org.sergei.soap.persistence.pojo.Customer;
+import org.sergei.soap.model.Customer;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

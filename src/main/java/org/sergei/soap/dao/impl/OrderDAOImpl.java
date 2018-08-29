@@ -1,7 +1,7 @@
-package org.sergei.soap.persistence.dao.impl;
+package org.sergei.soap.dao.impl;
 
-import org.sergei.soap.persistence.dao.repos.OrderDAO;
-import org.sergei.soap.persistence.pojo.Order;
+import org.sergei.soap.dao.repos.OrderDAO;
+import org.sergei.soap.model.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
