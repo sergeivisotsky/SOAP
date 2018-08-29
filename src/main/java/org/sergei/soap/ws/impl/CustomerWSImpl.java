@@ -1,7 +1,7 @@
 package org.sergei.soap.ws.impl;
 
 import org.sergei.soap.model.Customer;
-import org.sergei.soap.service.repos.CustomerService;
+import org.sergei.soap.service.CustomerService;
 import org.sergei.soap.ws.endpoint.CustomerWS;
 import org.springframework.stereotype.Component;
 

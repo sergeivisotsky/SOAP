@@ -1,7 +1,7 @@
 package org.sergei.soap.ws.impl;
 
 import org.sergei.soap.model.Order;
-import org.sergei.soap.service.repos.OrderService;
+import org.sergei.soap.service.OrderService;
 import org.sergei.soap.ws.endpoint.OrderWS;
 import org.springframework.stereotype.Component;
 

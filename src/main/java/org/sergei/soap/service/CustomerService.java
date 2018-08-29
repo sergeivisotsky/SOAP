@@ -1,6 +1,6 @@
 package org.sergei.soap.service;
 
-import org.sergei.soap.dao.repos.CustomerDAO;
+import org.sergei.soap.dao.CustomerDAO;
 import org.sergei.soap.exceptions.RecordNotFoundException;
 import org.sergei.soap.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
