@@ -1,0 +1,21 @@
+package org.sergei.soap.ws.endpoint;
+
+import org.sergei.soap.persistence.pojo.Customer;
+import org.springframework.stereotype.Component;
+
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebResult;
+import javax.jws.WebService;
+import java.util.List;
+
+@Component
+@WebService(name = "Customer", targetNamespace = "http://soap.controller.sergei.org")
+public interface CustomerWS {
+    @WebMethod
+    List<Customer> getAllCustomers();
+
+    @WebMethod
+    @WebResult(name = "outputCustomer")
+    Customer getCustomerById(@WebParam(name = "inputCustomerId") Long customerId);
+}
