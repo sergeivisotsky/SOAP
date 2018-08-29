@@ -19,4 +19,8 @@ public interface CustomerWS {
     @WebMethod(action = "getCustomerById")
     @WebResult(name = "outputCustomer")
     Customer getCustomerById(@WebParam(name = "inputCustomerId") Long customerId);
+
+    /*@WebMethod(action = "addCustomer")
+    @WebResult(name = "saveCustomer")
+    void saveCustomer(Customer customer);*/
 }

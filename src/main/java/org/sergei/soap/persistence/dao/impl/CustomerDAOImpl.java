@@ -20,6 +20,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     private static final String SQL_FIND_ALL = "SELECT * FROM customers";
     private static final String SQL_FIND_BY_ID = "SELECT * FROM customers WHERE customer_id = ?";
     private static final String SQL_EXISTS_BY_CUSTOMER_ID = "SELECT count(*) FROM customers WHERE customer_id = ?";
+//    private static final String SQL_SAVE_CUSTOMER = "INSERT INTO customers(first_name, last_name, age) VALUE (?, ?, ?)";
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -51,6 +52,15 @@ public class CustomerDAOImpl implements CustomerDAO {
         int count = jdbcTemplate.queryForObject(SQL_EXISTS_BY_CUSTOMER_ID, new Object[]{customerId}, Integer.class);
         return count > 0;
     }
+
+    /*@Override
+    public void saveCustomer(Customer customer) {
+        try {
+            jdbcTemplate.update(SQL_SAVE_CUSTOMER, customer.getFirstName(), customer.getLastName(), customer.getAge());
+        } catch (DataAccessException e) {
+            logger.error(e.getMessage());
+        }
+    }*/
 
     private static final class CustomerRowMapper implements RowMapper<Customer> {
         @Override

@@ -12,4 +12,6 @@ public interface CustomerDAO {
     Customer findById(Long id);
 
     boolean existsById(Long customerId);
+
+//    void saveCustomer(Customer customer);
 }

@@ -30,4 +30,9 @@ public class CustomerWSImpl implements CustomerWS {
     public Customer getCustomerById(Long customerId) {
         return customerService.getCustomerById(customerId);
     }
+
+    /*@Override
+    public void saveCustomer(Customer customer) {
+        customerService.saveCustomer(customer);
+    }*/
 }
