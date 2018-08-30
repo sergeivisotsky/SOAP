@@ -21,7 +21,7 @@ public class CustomerDAO {
     private static final String SQL_EXISTS_BY_CUSTOMER_ID = "SELECT count(*) FROM customers WHERE customer_id = ?";
 //    private static final String SQL_SAVE_CUSTOMER = "INSERT INTO customers(first_name, last_name, age) VALUE (?, ?, ?)";
 
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
