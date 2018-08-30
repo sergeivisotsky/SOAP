@@ -10,29 +10,25 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Customer {
 
-    @XmlElement(name = "customerId")
+    @XmlElement
     private Long customerId;
 
-    @XmlElement(name = "firstName")
+    @XmlElement
     private String firstName;
 
-    @XmlElement(name = "lastName")
+    @XmlElement
     private String lastName;
 
-    @XmlElement(name = "age")
+    @XmlElement
     private int age;
-
-    /*
-    private List<Order> orders;*/
 
     public Customer() {
     }
 
-    public Customer(String firstName, String lastName, int age, List<Order> orders) {
+    public Customer(String firstName, String lastName, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-//        this.orders = orders;
     }
 
     public Long getCustomerId() {
@@ -66,12 +62,4 @@ public class Customer {
     public void setAge(int age) {
         this.age = age;
     }
-
-    /*public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
-    }*/
 }
