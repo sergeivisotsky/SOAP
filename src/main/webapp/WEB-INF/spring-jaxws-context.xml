@@ -11,7 +11,7 @@
        http://jax-ws.java.net/spring/servlet.xsd">
 
     <!--Customer endpoint-->
-    <wss:binding url="/v1/CustomerService">
+    <wss:binding url="/ws/v1/CustomerService">
         <wss:service>
             <ws:service bean="#customerServiceWS"/>
         </wss:service>
@@ -24,7 +24,7 @@
     <bean id="customerService" class="org.sergei.soap.service.CustomerService"/>
 
     <!--Order endpoint-->
-    <wss:binding url="/v1/OrderService">
+    <wss:binding url="/ws/v1/OrderService">
         <wss:service>
             <ws:service bean="#orderServiceWS"/>
         </wss:service>

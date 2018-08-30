@@ -38,12 +38,12 @@
 
     <servlet-mapping>
         <servlet-name>SOAP_API</servlet-name>
-        <url-pattern>/v1/CustomerService/*</url-pattern>
+        <url-pattern>/ws/v1/CustomerService/*</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>SOAP_API</servlet-name>
-        <url-pattern>/v1/OrderService/*</url-pattern>
+        <url-pattern>/ws/v1/OrderService/*</url-pattern>
     </servlet-mapping>
 
     <session-config>
