@@ -25,17 +25,27 @@ public class OrderDAO {
     private static final String SQL_EXISTS_BY_GOOD = "SELECT count(*) FROM orders WHERE good = ?";
     private static final String SQL_EXISTS_BY_CUSTOMER_ID = "SELECT count(*) FROM orders WHERE customer_id = ?";
     private static final String SQL_FIND_ALL_BY_CUSTOMER_ID = "SELECT * FROM orders WHERE customer_id = ?";
+    private static final String SQL_SAVE_ORDER = "INSERT INTO orders(customer_id, trans_id, good, good_weight, price) VALUES (?, ?, ?, ?, ?)";
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    public void saveOrder(Order order) {
+        try {
+            jdbcTemplate.update(SQL_SAVE_ORDER, order.getCustomerId(), order.getTransId(),
+                    order.getGood(), order.getGoodWeight(), order.getPrice());
+        } catch (DataAccessException e) {
+            LOGGER.error(e.getMessage());
+        }
+    }
 
     public List<Order> findAll() {
         try {
             return jdbcTemplate.query(SQL_FIND_ALL, new OrderRowMapper());
         } catch (DataAccessException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
             return null;
         }
     }
@@ -44,7 +54,7 @@ public class OrderDAO {
         try {
             return jdbcTemplate.queryForObject(SQL_FIND_BY_ID, new OrderRowMapper(), id);
         } catch (DataAccessException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
             return null;
         }
     }
@@ -54,7 +64,7 @@ public class OrderDAO {
             return jdbcTemplate.queryForObject(SQL_FIND_BY_CUSTOMER_ID_AND_ORDER_ID,
                     new OrderRowMapper(), customerId, orderId);
         } catch (DataAccessException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
             return null;
         }
     }
@@ -63,7 +73,7 @@ public class OrderDAO {
         try {
             return jdbcTemplate.query(SQL_FIND_BY_CUSTOMER_ID_AND_GOOD, new OrderRowMapper(), customerId, good);
         } catch (DataAccessException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
             return null;
         }
     }
@@ -72,7 +82,7 @@ public class OrderDAO {
         try {
             return jdbcTemplate.query(SQL_FIND_BY_GOOD, new OrderRowMapper(), good);
         } catch (DataAccessException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
             return null;
         }
     }
@@ -93,7 +103,12 @@ public class OrderDAO {
     }
 
     public List<Order> findAllByCustomerId(Long id) {
-        return jdbcTemplate.query(SQL_FIND_ALL_BY_CUSTOMER_ID, new OrderRowMapper(), id);
+        try {
+            return jdbcTemplate.query(SQL_FIND_ALL_BY_CUSTOMER_ID, new OrderRowMapper(), id);
+        } catch (DataAccessException e) {
+            LOGGER.error(e.getMessage());
+            return null;
+        }
     }
 
     private static final class OrderRowMapper implements RowMapper<Order> {

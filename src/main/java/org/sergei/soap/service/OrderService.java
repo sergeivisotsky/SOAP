@@ -14,6 +14,10 @@ public class OrderService {
     @Autowired
     private OrderDAO orderDAO;
 
+    public void saveOrder(Order order) {
+        orderDAO.saveOrder(order);
+    }
+
     public List<Order> getAllOrders() {
         return orderDAO.findAll();
     }

@@ -19,18 +19,26 @@ public class CustomerDAO {
     private static final String SQL_FIND_ALL = "SELECT * FROM customers";
     private static final String SQL_FIND_BY_ID = "SELECT * FROM customers WHERE customer_id = ?";
     private static final String SQL_EXISTS_BY_CUSTOMER_ID = "SELECT count(*) FROM customers WHERE customer_id = ?";
-//    private static final String SQL_SAVE_CUSTOMER = "INSERT INTO customers(first_name, last_name, age) VALUE (?, ?, ?)";
+    private static final String SQL_SAVE_CUSTOMER = "INSERT INTO customers(first_name, last_name, age) VALUES (?, ?, ?)";
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    public void saveCustomer(Customer customer) {
+        try {
+            jdbcTemplate.update(SQL_SAVE_CUSTOMER, customer.getFirstName(), customer.getLastName(), customer.getAge());
+        } catch (DataAccessException e) {
+            LOGGER.error(e.getMessage());
+        }
+    }
 
     public List<Customer> findAll() {
         try {
             return jdbcTemplate.query(SQL_FIND_ALL, new CustomerRowMapper());
         } catch (DataAccessException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
             return null;
         }
     }
@@ -39,7 +47,7 @@ public class CustomerDAO {
         try {
             return jdbcTemplate.queryForObject(SQL_FIND_BY_ID, new CustomerRowMapper(), id);
         } catch (DataAccessException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
             return null;
         }
     }
@@ -48,15 +56,6 @@ public class CustomerDAO {
         int count = jdbcTemplate.queryForObject(SQL_EXISTS_BY_CUSTOMER_ID, new Object[]{customerId}, Integer.class);
         return count > 0;
     }
-
-    /*@Override
-    public void saveCustomer(Customer customer) {
-        try {
-            jdbcTemplate.update(SQL_SAVE_CUSTOMER, customer.getFirstName(), customer.getLastName(), customer.getAge());
-        } catch (DataAccessException e) {
-            logger.error(e.getMessage());
-        }
-    }*/
 
     private static final class CustomerRowMapper implements RowMapper<Customer> {
         @Override

@@ -18,6 +18,10 @@ public class CustomerService {
         return customerDAO.findAll();
     }
 
+    public void saveCustomer(Customer customer) {
+        customerDAO.saveCustomer(customer);
+    }
+
     public Customer getCustomerById(Long customerId) {
         if (!customerDAO.existsById(customerId)) {
             throw new RecordNotFoundException("No record with this parameters found");
@@ -25,9 +29,4 @@ public class CustomerService {
 
         return customerDAO.findById(customerId);
     }
-
-    /*@Override
-    public void saveCustomer(Customer customer) {
-        customerDAO.saveCustomer(customer);
-    }*/
 }

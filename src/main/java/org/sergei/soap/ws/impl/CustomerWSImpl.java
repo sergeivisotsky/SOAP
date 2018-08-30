@@ -16,6 +16,11 @@ public class CustomerWSImpl implements CustomerWS {
 
     private CustomerService customerService;
 
+    @Override
+    public void saveCustomer(Customer customer) {
+        customerService.saveCustomer(customer);
+    }
+
     @WebMethod(exclude = true)
     public void setCustomerService(CustomerService customerService) {
         this.customerService = customerService;
@@ -30,9 +35,4 @@ public class CustomerWSImpl implements CustomerWS {
     public Customer getCustomerById(Long customerId) {
         return customerService.getCustomerById(customerId);
     }
-
-    /*@Override
-    public void saveCustomer(Customer customer) {
-        customerService.saveCustomer(customer);
-    }*/
 }

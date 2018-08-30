@@ -22,6 +22,11 @@ public class OrderWSImpl implements OrderWS {
     }
 
     @Override
+    public void saveOrder(Order order) {
+        orderService.saveOrder(order);
+    }
+
+    @Override
     public List<Order> getAllOrders() {
         return orderService.getAllOrders();
     }
