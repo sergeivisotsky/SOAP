@@ -22,7 +22,16 @@ public class OrderWSImpl implements OrderWS {
     }
 
     @Override
-    public void saveOrder(Order order) {
+    public void saveOrder(Long customerId, Long transId,
+                          String good, double goodWeight, double price) {
+        Order order = new Order();
+
+        order.setCustomerId(customerId);
+        order.setTransId(transId);
+        order.setGood(good);
+        order.setGoodWeight(goodWeight);
+        order.setPrice(price);
+
         orderService.saveOrder(order);
     }
 

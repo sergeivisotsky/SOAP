@@ -14,7 +14,9 @@ import java.util.List;
 public interface CustomerWS {
     @WebMethod(action = "addCustomer")
     @WebResult(name = "saveCustomer")
-    void saveCustomer(Customer customer);
+    void saveCustomer(@WebParam(name = "firstName") String firstName,
+                      @WebParam(name = "lastName") String lastName,
+                      @WebParam(name = "age") int age);
 
     @WebMethod(action = "getAllCustomers")
     @WebResult(name = "outputAllCustomers")

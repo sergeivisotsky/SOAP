@@ -16,14 +16,20 @@ public class CustomerWSImpl implements CustomerWS {
 
     private CustomerService customerService;
 
-    @Override
-    public void saveCustomer(Customer customer) {
-        customerService.saveCustomer(customer);
-    }
-
     @WebMethod(exclude = true)
     public void setCustomerService(CustomerService customerService) {
         this.customerService = customerService;
+    }
+
+    @Override
+    public void saveCustomer(String firstName, String lastName, int age) {
+        Customer customer = new Customer();
+
+        customer.setFirstName(firstName);
+        customer.setLastName(lastName);
+        customer.setAge(age);
+
+        customerService.saveCustomer(customer);
     }
 
     @Override
