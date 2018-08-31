@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-    <display-name>SOAP API Server</display-name>
+    <display-name>SOAP Server</display-name>
 
     <listener>
         <listener-class>
@@ -31,18 +31,18 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>SOAP_API</servlet-name>
+        <servlet-name>SOAP_Server</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSSpringServlet</servlet-class>
         <load-on-startup>2</load-on-startup>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>SOAP_API</servlet-name>
+        <servlet-name>SOAP_Server</servlet-name>
         <url-pattern>/ws/v1/CustomerService/*</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>SOAP_API</servlet-name>
+        <servlet-name>SOAP_Server</servlet-name>
         <url-pattern>/ws/v1/OrderService/*</url-pattern>
     </servlet-mapping>
 
