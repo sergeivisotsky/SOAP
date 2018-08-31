@@ -64,4 +64,9 @@ public class OrderWSImpl implements OrderWS {
     public List<Order> getAllOrdersByGood(String good) {
         return orderService.getAllByGood(good);
     }
+
+    @Override
+    public void deleteOrderByCustomerIdAndOrderId(Long customerId, Long orderId) {
+        orderService.deleteOrder(customerId, orderId);
+    }
 }

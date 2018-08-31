@@ -26,6 +26,7 @@ public class OrderDAO {
     private static final String SQL_EXISTS_BY_CUSTOMER_ID = "SELECT count(*) FROM orders WHERE customer_id = ?";
     private static final String SQL_FIND_ALL_BY_CUSTOMER_ID = "SELECT * FROM orders WHERE customer_id = ?";
     private static final String SQL_SAVE_ORDER = "INSERT INTO orders(customer_id, trans_id, good, good_weight, price) VALUES (?, ?, ?, ?, ?)";
+    private static final String SQL_DELETE_BY_CUSTOMER_ID_GOOD_ID = "DELETE FROM orders WHERE customer_id = ? AND order_id = ?";
 
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
@@ -108,6 +109,14 @@ public class OrderDAO {
         } catch (DataAccessException e) {
             LOGGER.error(e.getMessage());
             return null;
+        }
+    }
+
+    public void delete(Order order) {
+        try {
+            jdbcTemplate.update(SQL_DELETE_BY_CUSTOMER_ID_GOOD_ID, order.getCustomerId(), order.getOrderId());
+        } catch (DataAccessException e) {
+            LOGGER.error(e.getMessage());
         }
     }
 

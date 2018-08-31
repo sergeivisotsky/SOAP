@@ -61,4 +61,13 @@ public class OrderService {
 
         return orderDAO.findAllByGood(good);
     }
+
+    public void deleteOrder(Long customerId, Long orderId) {
+        Order order = orderDAO.findByCustomerIdAndOrderId(customerId, orderId);
+        if (!orderDAO.existsByCustomerId(customerId) || !orderDAO.existsById(orderId)) {
+            throw new RecordNotFoundException("No record with this parameters found");
+        }
+
+        orderDAO.delete(order);
+    }
 }

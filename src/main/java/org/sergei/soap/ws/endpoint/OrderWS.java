@@ -46,4 +46,9 @@ public interface OrderWS {
     @WebMethod(action = "getOrderByGood")
     @WebResult(name = "outputOrderByGood")
     List<Order> getAllOrdersByGood(@WebParam(name = "inputOrderGood") String good);
+
+    @WebMethod(action = "deleteOrderByCustomerIdAndOrderId")
+    @WebResult(name = "deleteOrderData")
+    void deleteOrderByCustomerIdAndOrderId(@WebParam(name = "customerId") Long customerId,
+                                           @WebParam(name = "orderId") Long orderId);
 }

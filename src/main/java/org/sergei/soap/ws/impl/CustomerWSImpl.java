@@ -41,4 +41,9 @@ public class CustomerWSImpl implements CustomerWS {
     public Customer getCustomerById(Long customerId) {
         return customerService.getCustomerById(customerId);
     }
+
+    @Override
+    public void deleteCustomer(Long customerId) {
+        customerService.deleteCustomer(customerId);
+    }
 }

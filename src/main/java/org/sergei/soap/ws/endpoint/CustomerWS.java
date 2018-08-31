@@ -25,4 +25,8 @@ public interface CustomerWS {
     @WebMethod(action = "getCustomerById")
     @WebResult(name = "outputCustomer")
     Customer getCustomerById(@WebParam(name = "inputCustomerId") Long customerId);
+
+    @WebMethod(action = "deleteCustomerById")
+    @WebResult(name = "deleteCustomerData")
+    void deleteCustomer(@WebParam(name = "inputCustomerId") Long customerId);
 }

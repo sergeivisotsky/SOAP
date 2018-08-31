@@ -29,4 +29,13 @@ public class CustomerService {
 
         return customerDAO.findById(customerId);
     }
+
+    public void deleteCustomer(Long id) {
+        Customer customer = customerDAO.findById(id);
+        if (!customerDAO.existsById(id)) {
+            throw new RecordNotFoundException("Record with this parameters not found");
+        }
+
+        customerDAO.delete(customer);
+    }
 }

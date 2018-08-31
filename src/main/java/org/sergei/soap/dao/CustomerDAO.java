@@ -20,6 +20,7 @@ public class CustomerDAO {
     private static final String SQL_FIND_BY_ID = "SELECT * FROM customers WHERE customer_id = ?";
     private static final String SQL_EXISTS_BY_CUSTOMER_ID = "SELECT count(*) FROM customers WHERE customer_id = ?";
     private static final String SQL_SAVE_CUSTOMER = "INSERT INTO customers(first_name, last_name, age) VALUES (?, ?, ?)";
+    private static final String SQL_DELETE_CUSTOMER = "DELETE FROM customers WHERE customer_id = ?";
 
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
@@ -55,6 +56,14 @@ public class CustomerDAO {
     public boolean existsById(Long customerId) {
         int count = jdbcTemplate.queryForObject(SQL_EXISTS_BY_CUSTOMER_ID, new Object[]{customerId}, Integer.class);
         return count > 0;
+    }
+
+    public void delete(Customer customer) {
+        try {
+            jdbcTemplate.update(SQL_DELETE_CUSTOMER, customer.getCustomerId());
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
     }
 
     private static final class CustomerRowMapper implements RowMapper<Customer> {
