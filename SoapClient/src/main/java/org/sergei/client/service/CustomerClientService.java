@@ -27,7 +27,6 @@ public class CustomerClientService {
     }
 
     public org.sergei.soap.Customer getCustomerById(Long id) {
-//        LOGGER.info(getCustomerById.getInputCustomerId().toString());
         return customer.getCustomerById(id);
     }
 

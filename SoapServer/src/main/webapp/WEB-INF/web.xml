@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-    <display-name>SOAP API implementation</display-name>
+    <display-name>SOAP API Server</display-name>
 
     <listener>
         <listener-class>
@@ -20,13 +20,13 @@
     </context-param>
 
     <servlet>
-        <servlet-name>SOAP_API_WELCOME</servlet-name>
+        <servlet-name>SOAP_Server_WELCOME</servlet-name>
         <servlet-class>org.sergei.soap.welcome.Welcome</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>SOAP_API_WELCOME</servlet-name>
+        <servlet-name>SOAP_Server_WELCOME</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
