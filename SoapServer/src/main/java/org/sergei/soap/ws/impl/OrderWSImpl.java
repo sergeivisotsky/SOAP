@@ -2,7 +2,7 @@ package org.sergei.soap.ws.impl;
 
 import org.sergei.soap.model.Order;
 import org.sergei.soap.service.OrderService;
-import org.sergei.soap.ws.endpoint.OrderWS;
+import org.sergei.soap.ws.OrderWS;
 import org.springframework.stereotype.Component;
 
 import javax.jws.WebMethod;
@@ -10,7 +10,7 @@ import javax.jws.WebService;
 import java.util.List;
 
 @Component
-@WebService(endpointInterface = "org.sergei.soap.ws.endpoint.OrderWS",
+@WebService(endpointInterface = "org.sergei.soap.ws.OrderWS",
         serviceName = "OrderService", portName = "Order")
 public class OrderWSImpl implements OrderWS {
 

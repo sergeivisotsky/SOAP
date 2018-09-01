@@ -1,4 +1,4 @@
-package org.sergei.soap.ws.endpoint;
+package org.sergei.soap.ws;
 
 import org.sergei.soap.model.Customer;
 import org.springframework.stereotype.Component;
