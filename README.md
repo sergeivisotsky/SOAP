@@ -12,6 +12,10 @@ To declare method to be SOAP method `@WebMethod` annotation is required for ever
 
 From this annotations WSDL is generated which is available by this url [http://localhost:8080/soap/ws/v1/EndpointName?wsdl](http://localhost:8080/soap/ws/v1/EndpointName?wsdl)
 
+WSDL can be customized with annotation attributed like `name`, `targetNamespace`, `action` 
+
+Method parameters can be declared with `@WebParam` annotation.
+
 Endpoint start page: [http://localhost:8080/soap/ws/v1/EndpointName](http://localhost:8080/soap/ws/v1/EndpointName)
 
 ## SOAP Client
