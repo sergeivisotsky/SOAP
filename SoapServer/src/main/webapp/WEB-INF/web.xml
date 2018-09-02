@@ -14,35 +14,37 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/applicationContext.xml,
+        <param-value>/WEB-INF/SOAP_Server-servlet.xml,
             /WEB-INF/spring-jaxws-context.xml
         </param-value>
     </context-param>
 
     <servlet>
-        <servlet-name>SOAP_Server_WELCOME</servlet-name>
-        <servlet-class>org.sergei.soap.welcome.Welcome</servlet-class>
+        <servlet-name>SOAP_Server</servlet-name>
+        <servlet-class>
+            org.springframework.web.servlet.DispatcherServlet
+        </servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>SOAP_Server_WELCOME</servlet-name>
+        <servlet-name>SOAP_Server</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>SOAP_Server</servlet-name>
+        <servlet-name>SOAP_Server-Endpoint</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSSpringServlet</servlet-class>
         <load-on-startup>2</load-on-startup>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>SOAP_Server</servlet-name>
+        <servlet-name>SOAP_Server-Endpoint</servlet-name>
         <url-pattern>/ws/v1/CustomerService/*</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>SOAP_Server</servlet-name>
+        <servlet-name>SOAP_Server-Endpoint</servlet-name>
         <url-pattern>/ws/v1/OrderService/*</url-pattern>
     </servlet-mapping>
 
