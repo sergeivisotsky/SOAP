@@ -9,6 +9,7 @@ import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 
 @Component
 public class CustomerClientService {
@@ -27,8 +28,11 @@ public class CustomerClientService {
         }
     }
 
+    public List<org.sergei.soap.Customer> getAllCustomers() {
+        return customer.getAllCustomers();
+    }
+
     public org.sergei.soap.Customer getCustomerById(Long id) {
         return customer.getCustomerById(id);
     }
-
 }

@@ -24,15 +24,23 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetAllCustomers_QNAME = new QName("http://soap.sergei.org", "getAllCustomers");
-    private final static QName _GetCustomerById_QNAME = new QName("http://soap.sergei.org", "getCustomerById");
-    private final static QName _SaveCustomer_QNAME = new QName("http://soap.sergei.org", "saveCustomer");
-    private final static QName _GetAllCustomersResponse_QNAME = new QName("http://soap.sergei.org", "getAllCustomersResponse");
-    private final static QName _Customer_QNAME = new QName("http://soap.sergei.org", "customer");
-    private final static QName _DeleteCustomerResponse_QNAME = new QName("http://soap.sergei.org", "deleteCustomerResponse");
-    private final static QName _GetCustomerByIdResponse_QNAME = new QName("http://soap.sergei.org", "getCustomerByIdResponse");
-    private final static QName _DeleteCustomer_QNAME = new QName("http://soap.sergei.org", "deleteCustomer");
-    private final static QName _SaveCustomerResponse_QNAME = new QName("http://soap.sergei.org", "saveCustomerResponse");
+    private final static QName _DeleteOrderByCustomerIdAndOrderIdResponse_QNAME = new QName("http://soap.sergei.org", "deleteOrderByCustomerIdAndOrderIdResponse");
+    private final static QName _SaveOrder_QNAME = new QName("http://soap.sergei.org", "saveOrder");
+    private final static QName _GetOrderByCustomerIdAndOrderId_QNAME = new QName("http://soap.sergei.org", "getOrderByCustomerIdAndOrderId");
+    private final static QName _GetOrderById_QNAME = new QName("http://soap.sergei.org", "getOrderById");
+    private final static QName _GetAllOrdersByCustomerIdAndGoodResponse_QNAME = new QName("http://soap.sergei.org", "getAllOrdersByCustomerIdAndGoodResponse");
+    private final static QName _GetAllOrdersByCustomerIdAndGood_QNAME = new QName("http://soap.sergei.org", "getAllOrdersByCustomerIdAndGood");
+    private final static QName _GetAllOrdersByGoodResponse_QNAME = new QName("http://soap.sergei.org", "getAllOrdersByGoodResponse");
+    private final static QName _GetOrderByCustomerIdAndOrderIdResponse_QNAME = new QName("http://soap.sergei.org", "getOrderByCustomerIdAndOrderIdResponse");
+    private final static QName _GetAllOrders_QNAME = new QName("http://soap.sergei.org", "getAllOrders");
+    private final static QName _SaveOrderResponse_QNAME = new QName("http://soap.sergei.org", "saveOrderResponse");
+    private final static QName _GetOrderByIdResponse_QNAME = new QName("http://soap.sergei.org", "getOrderByIdResponse");
+    private final static QName _GetAllOrdersResponse_QNAME = new QName("http://soap.sergei.org", "getAllOrdersResponse");
+    private final static QName _GetAllOrdersByCustomerId_QNAME = new QName("http://soap.sergei.org", "getAllOrdersByCustomerId");
+    private final static QName _GetAllOrdersByCustomerIdResponse_QNAME = new QName("http://soap.sergei.org", "getAllOrdersByCustomerIdResponse");
+    private final static QName _DeleteOrderByCustomerIdAndOrderId_QNAME = new QName("http://soap.sergei.org", "deleteOrderByCustomerIdAndOrderId");
+    private final static QName _GetAllOrdersByGood_QNAME = new QName("http://soap.sergei.org", "getAllOrdersByGood");
+    private final static QName _Order_QNAME = new QName("http://soap.sergei.org", "order");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: org.sergei.soap
@@ -42,156 +50,292 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetAllCustomersResponse }
+     * Create an instance of {@link GetOrderByCustomerIdAndOrderIdResponse }
      * 
      */
-    public GetAllCustomersResponse createGetAllCustomersResponse() {
-        return new GetAllCustomersResponse();
+    public GetOrderByCustomerIdAndOrderIdResponse createGetOrderByCustomerIdAndOrderIdResponse() {
+        return new GetOrderByCustomerIdAndOrderIdResponse();
     }
 
     /**
-     * Create an instance of {@link SaveCustomer }
+     * Create an instance of {@link GetAllOrdersByGoodResponse }
      * 
      */
-    public SaveCustomer createSaveCustomer() {
-        return new SaveCustomer();
+    public GetAllOrdersByGoodResponse createGetAllOrdersByGoodResponse() {
+        return new GetAllOrdersByGoodResponse();
     }
 
     /**
-     * Create an instance of {@link GetCustomerById }
+     * Create an instance of {@link GetAllOrdersByCustomerIdAndGood }
      * 
      */
-    public GetCustomerById createGetCustomerById() {
-        return new GetCustomerById();
+    public GetAllOrdersByCustomerIdAndGood createGetAllOrdersByCustomerIdAndGood() {
+        return new GetAllOrdersByCustomerIdAndGood();
     }
 
     /**
-     * Create an instance of {@link GetAllCustomers }
+     * Create an instance of {@link GetAllOrdersByCustomerIdAndGoodResponse }
      * 
      */
-    public GetAllCustomers createGetAllCustomers() {
-        return new GetAllCustomers();
+    public GetAllOrdersByCustomerIdAndGoodResponse createGetAllOrdersByCustomerIdAndGoodResponse() {
+        return new GetAllOrdersByCustomerIdAndGoodResponse();
     }
 
     /**
-     * Create an instance of {@link SaveCustomerResponse }
+     * Create an instance of {@link GetOrderByCustomerIdAndOrderId }
      * 
      */
-    public SaveCustomerResponse createSaveCustomerResponse() {
-        return new SaveCustomerResponse();
+    public GetOrderByCustomerIdAndOrderId createGetOrderByCustomerIdAndOrderId() {
+        return new GetOrderByCustomerIdAndOrderId();
     }
 
     /**
-     * Create an instance of {@link DeleteCustomer }
+     * Create an instance of {@link GetOrderById }
      * 
      */
-    public DeleteCustomer createDeleteCustomer() {
-        return new DeleteCustomer();
+    public GetOrderById createGetOrderById() {
+        return new GetOrderById();
     }
 
     /**
-     * Create an instance of {@link DeleteCustomerResponse }
+     * Create an instance of {@link DeleteOrderByCustomerIdAndOrderIdResponse }
      * 
      */
-    public DeleteCustomerResponse createDeleteCustomerResponse() {
-        return new DeleteCustomerResponse();
+    public DeleteOrderByCustomerIdAndOrderIdResponse createDeleteOrderByCustomerIdAndOrderIdResponse() {
+        return new DeleteOrderByCustomerIdAndOrderIdResponse();
     }
 
     /**
-     * Create an instance of {@link GetCustomerByIdResponse }
+     * Create an instance of {@link SaveOrder }
      * 
      */
-    public GetCustomerByIdResponse createGetCustomerByIdResponse() {
-        return new GetCustomerByIdResponse();
+    public SaveOrder createSaveOrder() {
+        return new SaveOrder();
     }
 
     /**
-     * Create an instance of {@link Customer }
+     * Create an instance of {@link GetAllOrdersResponse }
      * 
      */
-    public Customer createCustomer() {
-        return new Customer();
+    public GetAllOrdersResponse createGetAllOrdersResponse() {
+        return new GetAllOrdersResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllCustomers }{@code >}}
+     * Create an instance of {@link GetOrderByIdResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "getAllCustomers")
-    public JAXBElement<GetAllCustomers> createGetAllCustomers(GetAllCustomers value) {
-        return new JAXBElement<GetAllCustomers>(_GetAllCustomers_QNAME, GetAllCustomers.class, null, value);
+    public GetOrderByIdResponse createGetOrderByIdResponse() {
+        return new GetOrderByIdResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetCustomerById }{@code >}}
+     * Create an instance of {@link SaveOrderResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "getCustomerById")
-    public JAXBElement<GetCustomerById> createGetCustomerById(GetCustomerById value) {
-        return new JAXBElement<GetCustomerById>(_GetCustomerById_QNAME, GetCustomerById.class, null, value);
+    public SaveOrderResponse createSaveOrderResponse() {
+        return new SaveOrderResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SaveCustomer }{@code >}}
+     * Create an instance of {@link GetAllOrders }
      * 
      */
-    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "saveCustomer")
-    public JAXBElement<SaveCustomer> createSaveCustomer(SaveCustomer value) {
-        return new JAXBElement<SaveCustomer>(_SaveCustomer_QNAME, SaveCustomer.class, null, value);
+    public GetAllOrders createGetAllOrders() {
+        return new GetAllOrders();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllCustomersResponse }{@code >}}
+     * Create an instance of {@link GetAllOrdersByGood }
      * 
      */
-    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "getAllCustomersResponse")
-    public JAXBElement<GetAllCustomersResponse> createGetAllCustomersResponse(GetAllCustomersResponse value) {
-        return new JAXBElement<GetAllCustomersResponse>(_GetAllCustomersResponse_QNAME, GetAllCustomersResponse.class, null, value);
+    public GetAllOrdersByGood createGetAllOrdersByGood() {
+        return new GetAllOrdersByGood();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Customer }{@code >}}
+     * Create an instance of {@link DeleteOrderByCustomerIdAndOrderId }
      * 
      */
-    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "customer")
-    public JAXBElement<Customer> createCustomer(Customer value) {
-        return new JAXBElement<Customer>(_Customer_QNAME, Customer.class, null, value);
+    public DeleteOrderByCustomerIdAndOrderId createDeleteOrderByCustomerIdAndOrderId() {
+        return new DeleteOrderByCustomerIdAndOrderId();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteCustomerResponse }{@code >}}
+     * Create an instance of {@link GetAllOrdersByCustomerIdResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "deleteCustomerResponse")
-    public JAXBElement<DeleteCustomerResponse> createDeleteCustomerResponse(DeleteCustomerResponse value) {
-        return new JAXBElement<DeleteCustomerResponse>(_DeleteCustomerResponse_QNAME, DeleteCustomerResponse.class, null, value);
+    public GetAllOrdersByCustomerIdResponse createGetAllOrdersByCustomerIdResponse() {
+        return new GetAllOrdersByCustomerIdResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetCustomerByIdResponse }{@code >}}
+     * Create an instance of {@link GetAllOrdersByCustomerId }
      * 
      */
-    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "getCustomerByIdResponse")
-    public JAXBElement<GetCustomerByIdResponse> createGetCustomerByIdResponse(GetCustomerByIdResponse value) {
-        return new JAXBElement<GetCustomerByIdResponse>(_GetCustomerByIdResponse_QNAME, GetCustomerByIdResponse.class, null, value);
+    public GetAllOrdersByCustomerId createGetAllOrdersByCustomerId() {
+        return new GetAllOrdersByCustomerId();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteCustomer }{@code >}}
+     * Create an instance of {@link Order }
      * 
      */
-    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "deleteCustomer")
-    public JAXBElement<DeleteCustomer> createDeleteCustomer(DeleteCustomer value) {
-        return new JAXBElement<DeleteCustomer>(_DeleteCustomer_QNAME, DeleteCustomer.class, null, value);
+    public Order createOrder() {
+        return new Order();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SaveCustomerResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteOrderByCustomerIdAndOrderIdResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "saveCustomerResponse")
-    public JAXBElement<SaveCustomerResponse> createSaveCustomerResponse(SaveCustomerResponse value) {
-        return new JAXBElement<SaveCustomerResponse>(_SaveCustomerResponse_QNAME, SaveCustomerResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "deleteOrderByCustomerIdAndOrderIdResponse")
+    public JAXBElement<DeleteOrderByCustomerIdAndOrderIdResponse> createDeleteOrderByCustomerIdAndOrderIdResponse(DeleteOrderByCustomerIdAndOrderIdResponse value) {
+        return new JAXBElement<DeleteOrderByCustomerIdAndOrderIdResponse>(_DeleteOrderByCustomerIdAndOrderIdResponse_QNAME, DeleteOrderByCustomerIdAndOrderIdResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SaveOrder }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "saveOrder")
+    public JAXBElement<SaveOrder> createSaveOrder(SaveOrder value) {
+        return new JAXBElement<SaveOrder>(_SaveOrder_QNAME, SaveOrder.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrderByCustomerIdAndOrderId }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "getOrderByCustomerIdAndOrderId")
+    public JAXBElement<GetOrderByCustomerIdAndOrderId> createGetOrderByCustomerIdAndOrderId(GetOrderByCustomerIdAndOrderId value) {
+        return new JAXBElement<GetOrderByCustomerIdAndOrderId>(_GetOrderByCustomerIdAndOrderId_QNAME, GetOrderByCustomerIdAndOrderId.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrderById }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "getOrderById")
+    public JAXBElement<GetOrderById> createGetOrderById(GetOrderById value) {
+        return new JAXBElement<GetOrderById>(_GetOrderById_QNAME, GetOrderById.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllOrdersByCustomerIdAndGoodResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "getAllOrdersByCustomerIdAndGoodResponse")
+    public JAXBElement<GetAllOrdersByCustomerIdAndGoodResponse> createGetAllOrdersByCustomerIdAndGoodResponse(GetAllOrdersByCustomerIdAndGoodResponse value) {
+        return new JAXBElement<GetAllOrdersByCustomerIdAndGoodResponse>(_GetAllOrdersByCustomerIdAndGoodResponse_QNAME, GetAllOrdersByCustomerIdAndGoodResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllOrdersByCustomerIdAndGood }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "getAllOrdersByCustomerIdAndGood")
+    public JAXBElement<GetAllOrdersByCustomerIdAndGood> createGetAllOrdersByCustomerIdAndGood(GetAllOrdersByCustomerIdAndGood value) {
+        return new JAXBElement<GetAllOrdersByCustomerIdAndGood>(_GetAllOrdersByCustomerIdAndGood_QNAME, GetAllOrdersByCustomerIdAndGood.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllOrdersByGoodResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "getAllOrdersByGoodResponse")
+    public JAXBElement<GetAllOrdersByGoodResponse> createGetAllOrdersByGoodResponse(GetAllOrdersByGoodResponse value) {
+        return new JAXBElement<GetAllOrdersByGoodResponse>(_GetAllOrdersByGoodResponse_QNAME, GetAllOrdersByGoodResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrderByCustomerIdAndOrderIdResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "getOrderByCustomerIdAndOrderIdResponse")
+    public JAXBElement<GetOrderByCustomerIdAndOrderIdResponse> createGetOrderByCustomerIdAndOrderIdResponse(GetOrderByCustomerIdAndOrderIdResponse value) {
+        return new JAXBElement<GetOrderByCustomerIdAndOrderIdResponse>(_GetOrderByCustomerIdAndOrderIdResponse_QNAME, GetOrderByCustomerIdAndOrderIdResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllOrders }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "getAllOrders")
+    public JAXBElement<GetAllOrders> createGetAllOrders(GetAllOrders value) {
+        return new JAXBElement<GetAllOrders>(_GetAllOrders_QNAME, GetAllOrders.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SaveOrderResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "saveOrderResponse")
+    public JAXBElement<SaveOrderResponse> createSaveOrderResponse(SaveOrderResponse value) {
+        return new JAXBElement<SaveOrderResponse>(_SaveOrderResponse_QNAME, SaveOrderResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrderByIdResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "getOrderByIdResponse")
+    public JAXBElement<GetOrderByIdResponse> createGetOrderByIdResponse(GetOrderByIdResponse value) {
+        return new JAXBElement<GetOrderByIdResponse>(_GetOrderByIdResponse_QNAME, GetOrderByIdResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllOrdersResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "getAllOrdersResponse")
+    public JAXBElement<GetAllOrdersResponse> createGetAllOrdersResponse(GetAllOrdersResponse value) {
+        return new JAXBElement<GetAllOrdersResponse>(_GetAllOrdersResponse_QNAME, GetAllOrdersResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllOrdersByCustomerId }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "getAllOrdersByCustomerId")
+    public JAXBElement<GetAllOrdersByCustomerId> createGetAllOrdersByCustomerId(GetAllOrdersByCustomerId value) {
+        return new JAXBElement<GetAllOrdersByCustomerId>(_GetAllOrdersByCustomerId_QNAME, GetAllOrdersByCustomerId.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllOrdersByCustomerIdResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "getAllOrdersByCustomerIdResponse")
+    public JAXBElement<GetAllOrdersByCustomerIdResponse> createGetAllOrdersByCustomerIdResponse(GetAllOrdersByCustomerIdResponse value) {
+        return new JAXBElement<GetAllOrdersByCustomerIdResponse>(_GetAllOrdersByCustomerIdResponse_QNAME, GetAllOrdersByCustomerIdResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteOrderByCustomerIdAndOrderId }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "deleteOrderByCustomerIdAndOrderId")
+    public JAXBElement<DeleteOrderByCustomerIdAndOrderId> createDeleteOrderByCustomerIdAndOrderId(DeleteOrderByCustomerIdAndOrderId value) {
+        return new JAXBElement<DeleteOrderByCustomerIdAndOrderId>(_DeleteOrderByCustomerIdAndOrderId_QNAME, DeleteOrderByCustomerIdAndOrderId.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllOrdersByGood }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "getAllOrdersByGood")
+    public JAXBElement<GetAllOrdersByGood> createGetAllOrdersByGood(GetAllOrdersByGood value) {
+        return new JAXBElement<GetAllOrdersByGood>(_GetAllOrdersByGood_QNAME, GetAllOrdersByGood.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Order }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "order")
+    public JAXBElement<Order> createOrder(Order value) {
+        return new JAXBElement<Order>(_Order_QNAME, Order.class, null, value);
     }
 
 }

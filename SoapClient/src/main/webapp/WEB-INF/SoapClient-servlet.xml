@@ -14,7 +14,12 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!--Customer service configuration-->
     <bean name="CustomerService" id="customerService" class="org.sergei.soap.ws.impl.CustomerService"/>
     <bean name="GetCustomerById" id="getCustomerById" class="org.sergei.soap.GetCustomerById"/>
     <bean name="GetCustomerByIdResponse" id="getCustomerByIdResponse" class="org.sergei.soap.GetCustomerByIdResponse"/>
+
+    <!--Order service configuration-->
+    <bean name="OrderService" id="orderService" class="org.sergei.soap.ws.impl.OrderService"/>
+    <bean name="GetAllOrdersByCustomerId" id="getAllOrdersByCustomerId" class="org.sergei.soap.GetAllOrdersByCustomerId"/>
 </beans>

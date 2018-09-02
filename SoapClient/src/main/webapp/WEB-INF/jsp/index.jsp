@@ -1,11 +1,31 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>SOAP WS Client</title>
 </head>
 <body>
-<div>First name: ${firstName}</div>
-<div>Last name: ${lastName}</div>
-<div>Age: ${age}</div>
+<h2>Customer and all his orders</h2>
+<table>
+    <tr>
+        <td>
+            <div>Customer id: ${customerId}</div>
+            <div>First name: ${firstName}</div>
+            <div>Last name: ${lastName}</div>
+            <div>Age: ${age}</div>
+        </td>
+        <td>
+            <c:forEach items="${orders}" var="order">
+                <div>Customer Id: ${order.customerId}</div>
+                <div>Order Id: ${order.orderId}</div>
+                <div>Trans id: ${order.transId}</div>
+                <div>Good: ${order.good}</div>
+                <div>Good weight: ${order.goodWeight}</div>
+                <div>Price: ${order.price}</div>
+                <br>
+            </c:forEach>
+        </td>
+    </tr>
+</table>
 </body>
 </html>
