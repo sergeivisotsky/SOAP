@@ -5,10 +5,14 @@ WSDL migh be written manually what affects a big knowledge of XML or autogenerat
 
 ## SOAP Server
 To create this server Java EE was used.
+
 To declare endpoint it is required to annotate class with `@WebService` annotation
+
 To declare method to be SOAP method `@WebMethod` annotation is required for every method exists attributes.
-Endpoint start page: [http://localhost:8080/soap/ws/v1/EndpointName](http://localhost:8080/soap/ws/v1/EndpointName)
+
 From this annotations WSDL is generated which is available by this url [http://localhost:8080/soap/ws/v1/EndpointName?wsdl](http://localhost:8080/soap/ws/v1/EndpointName?wsdl)
+
+Endpoint start page: [http://localhost:8080/soap/ws/v1/EndpointName](http://localhost:8080/soap/ws/v1/EndpointName)
 
 ## SOAP Client
 To consume SOAP API its methods should be extracted from WSDL to perform it `wsimport -keep -verbose http://localhost:8080/soap/ws/v1/CustomerService?wsdl` command should be performed.
