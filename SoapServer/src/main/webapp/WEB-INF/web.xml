@@ -45,8 +45,4 @@
         <servlet-name>SOAP_Server-Endpoint</servlet-name>
         <url-pattern>/ws/v1/OrderService/*</url-pattern>
     </servlet-mapping>
-
-    <!--<session-config>
-        <session-timeout>120</session-timeout>
-    </session-config>-->
 </web-app>
