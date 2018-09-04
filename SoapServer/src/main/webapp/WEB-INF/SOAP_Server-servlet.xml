@@ -23,5 +23,6 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
+    <!--JAX-WS configuration with each endpoint-->
     <import resource="spring-jaxws-context.xml"/>
 </beans>
