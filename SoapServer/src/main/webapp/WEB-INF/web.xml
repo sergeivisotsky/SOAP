@@ -14,9 +14,7 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/SOAP_Server-servlet.xml,
-            /WEB-INF/spring-jaxws-context.xml
-        </param-value>
+        <param-value>/WEB-INF/SOAP_Server-servlet.xml</param-value>
     </context-param>
 
     <servlet>
@@ -35,7 +33,7 @@
     <servlet>
         <servlet-name>SOAP_Server-Endpoint</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSSpringServlet</servlet-class>
-        <load-on-startup>2</load-on-startup>
+        <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
@@ -48,7 +46,7 @@
         <url-pattern>/ws/v1/OrderService/*</url-pattern>
     </servlet-mapping>
 
-    <session-config>
+    <!--<session-config>
         <session-timeout>120</session-timeout>
-    </session-config>
+    </session-config>-->
 </web-app>
