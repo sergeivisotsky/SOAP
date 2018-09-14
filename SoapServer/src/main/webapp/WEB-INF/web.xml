@@ -45,4 +45,9 @@
         <servlet-name>SOAP_Server-Endpoint</servlet-name>
         <url-pattern>/ws/v1/OrderService/*</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SOAP_Server-Endpoint</servlet-name>
+        <url-pattern>/ws/v1/PhotoService/*</url-pattern>
+    </servlet-mapping>
 </web-app>
