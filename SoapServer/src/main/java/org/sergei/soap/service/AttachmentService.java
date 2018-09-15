@@ -14,14 +14,14 @@ public class AttachmentService {
     @Autowired
     private AttachmentDAO attachmentDAO;
 
-    /*@Autowired
-    private FileOperations fileOperations;*/
+    @Autowired
+    private FileOperations fileOperations;
 
     public AttachmentUploadResponse savePhotoMeta(Long customerId, DataHandler file) {
         AttachmentUploadResponse attachmentUploadResponse = new AttachmentUploadResponse();
 
         attachmentUploadResponse.setCustomerId(customerId);
-        attachmentUploadResponse.setDocName(file.getName());
+        attachmentUploadResponse.setDocName(file.getContentType().substring(file.getContentType().indexOf("name=") + 5).trim());
         attachmentUploadResponse.setDocType(file.getContentType());
 
         attachmentDAO.savePhotoMeta(attachmentUploadResponse);
