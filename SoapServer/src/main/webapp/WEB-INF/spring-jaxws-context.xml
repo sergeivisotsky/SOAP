@@ -36,17 +36,17 @@
 
     <bean id="orderService" class="org.sergei.soap.service.OrderService"/>
 
-    <!--PhotoUploadResponse endpoint-->
-    <wss:binding url="/ws/v1/PhotoService">
+    <!--Attachment endpoint-->
+    <wss:binding url="/ws/v1/AttachmentService">
         <wss:service>
-            <ws:service bean="#photoServiceWS"/>
+            <ws:service bean="#attachmentServiceWS"/>
         </wss:service>
     </wss:binding>
 
-    <bean id="photoServiceWS" class="org.sergei.soap.ws.impl.PhotoWSImpl">
-        <property name="photoService" ref="photoService"/>
+    <bean id="attachmentServiceWS" class="org.sergei.soap.ws.impl.AttachmentWSImpl">
+        <property name="attachmentService" ref="attachmentService"/>
     </bean>
 
-    <bean id="photoService" class="org.sergei.soap.service.PhotoService"/>
+    <bean id="attachmentService" class="org.sergei.soap.service.AttachmentService"/>
 
 </beans>

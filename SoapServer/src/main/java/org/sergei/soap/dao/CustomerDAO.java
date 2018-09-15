@@ -30,6 +30,7 @@ public class CustomerDAO {
     public void saveCustomer(Customer customer) {
         try {
             jdbcTemplate.update(SQL_SAVE_CUSTOMER, customer.getFirstName(), customer.getLastName(), customer.getAge());
+            LOGGER.info("Customer entity saved");
         } catch (DataAccessException e) {
             LOGGER.error(e.getMessage());
         }
@@ -61,6 +62,7 @@ public class CustomerDAO {
     public void delete(Customer customer) {
         try {
             jdbcTemplate.update(SQL_DELETE_CUSTOMER, customer.getCustomerId());
+            LOGGER.info("Customer entity deleted");
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
         }

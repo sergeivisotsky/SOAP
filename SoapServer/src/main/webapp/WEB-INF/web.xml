@@ -48,6 +48,6 @@
 
     <servlet-mapping>
         <servlet-name>SOAP_Server-Endpoint</servlet-name>
-        <url-pattern>/ws/v1/PhotoService/*</url-pattern>
+        <url-pattern>/ws/v1/AttachmentService/*</url-pattern>
     </servlet-mapping>
 </web-app>

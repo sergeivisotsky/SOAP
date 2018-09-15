@@ -37,6 +37,7 @@ public class OrderDAO {
         try {
             jdbcTemplate.update(SQL_SAVE_ORDER, order.getCustomerId(), order.getTransId(),
                     order.getGood(), order.getGoodWeight(), order.getPrice());
+            LOGGER.info("Order entity saved");
         } catch (DataAccessException e) {
             LOGGER.error(e.getMessage());
         }
@@ -115,6 +116,7 @@ public class OrderDAO {
     public void delete(Order order) {
         try {
             jdbcTemplate.update(SQL_DELETE_BY_CUSTOMER_ID_GOOD_ID, order.getCustomerId(), order.getOrderId());
+            LOGGER.info("Order entity deleted");
         } catch (DataAccessException e) {
             LOGGER.error(e.getMessage());
         }

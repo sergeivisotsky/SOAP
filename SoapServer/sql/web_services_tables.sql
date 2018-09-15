@@ -37,18 +37,15 @@ WITH (
 ALTER TABLE public.orders
   OWNER TO service;
 
-drop table if exists photos;
-CREATE TABLE photos
-(
-  photo_id bigserial NOT NULL primary key,
+drop table if exists documents;
+create table documents(
+  doc_id bigserial not null primary key,
   customer_id bigserial not null references customers(customer_id) on delete cascade,
-  file_name varchar(100),
-  file_url varchar(150),
-  file_type varchar(50),
-  file_size integer
+  doc_name varchar(100),
+  doc_type varchar(50)
 )
 WITH (
 OIDS=FALSE
 );
-ALTER TABLE public.photos
+ALTER TABLE public.documents
   OWNER TO service;
