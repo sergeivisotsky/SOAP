@@ -36,17 +36,4 @@
 
     <bean id="orderService" class="org.sergei.soap.service.OrderService"/>
 
-    <!--Attachment endpoint-->
-    <wss:binding url="/ws/v1/AttachmentService">
-        <wss:service>
-            <ws:service bean="#attachmentServiceWS"/>
-        </wss:service>
-    </wss:binding>
-
-    <bean id="attachmentServiceWS" class="org.sergei.soap.ws.impl.AttachmentWSImpl">
-        <property name="attachmentService" ref="attachmentService"/>
-    </bean>
-
-    <bean id="attachmentService" class="org.sergei.soap.service.AttachmentService"/>
-
 </beans>
