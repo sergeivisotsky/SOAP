@@ -22,7 +22,7 @@ public class AttachmentWSImpl implements AttachmentWS {
     }
 
     @Override
-    public AttachmentUploadResponse saveAttachment(Long customerId, DataHandler file) {
-        return attachmentService.savePhotoMeta(customerId, file);
+    public AttachmentUploadResponse saveAttachment(Long customerId, String fileName, DataHandler file) {
+        return attachmentService.savePhotoMeta(customerId, fileName, file);
     }
 }

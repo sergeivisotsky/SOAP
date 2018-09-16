@@ -15,5 +15,6 @@ public interface AttachmentWS {
     @WebMethod(action = "saveAttachmentMeta")
     @WebResult(name = "inputAttachment")
     AttachmentUploadResponse saveAttachment(@WebParam(name = "inputCustomerId") Long customerId,
+                                            @WebParam(name = "inputFileName") String fileName,
                                             @WebParam(name = "inputAttachment") DataHandler file);
 }

@@ -40,8 +40,9 @@ public class FileOperations {
             ftpClient.enterLocalPassiveMode();
             ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
             // Get local commonsMultipartFile to upload on the server
-            File localFile = new File(file.getName());
-            String remoteFile = file.getName();
+            String contentType = file.getContentType();
+            File localFile = new File(contentType.substring(contentType.indexOf("name=") + 5).trim());
+            String remoteFile = contentType.substring(contentType.indexOf("name=") + 5).trim();
             InputStream inputStream = new FileInputStream(localFile);
             boolean done = ftpClient.storeFile(remoteFile, inputStream);
             if (done) {
