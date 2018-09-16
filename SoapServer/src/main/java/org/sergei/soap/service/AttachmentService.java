@@ -1,5 +1,6 @@
 package org.sergei.soap.service;
 
+import com.sun.prism.Image;
 import org.sergei.soap.dao.AttachmentDAO;
 import org.sergei.soap.ftp.FileOperations;
 import org.sergei.soap.model.AttachmentUploadResponse;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.activation.DataHandler;
+import java.awt.*;
 
 @Service
 public class AttachmentService {
@@ -21,7 +23,7 @@ public class AttachmentService {
         AttachmentUploadResponse attachmentUploadResponse = new AttachmentUploadResponse();
 
         attachmentUploadResponse.setCustomerId(customerId);
-        attachmentUploadResponse.setDocName(file.getContentType().substring(file.getContentType().indexOf("name=") + 5).trim());
+        attachmentUploadResponse.setDocName(file.getName());
         attachmentUploadResponse.setDocType(file.getContentType());
 
         attachmentDAO.savePhotoMeta(attachmentUploadResponse);
