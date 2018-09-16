@@ -8,11 +8,6 @@ jdk:
 - openjdk9
 - openjdk10
 
-jobs:
-  include:
-  - stage: install
-    script: mav clean install
-
 branches:
   only:
   - master
