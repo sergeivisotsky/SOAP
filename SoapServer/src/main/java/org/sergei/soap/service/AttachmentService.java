@@ -27,7 +27,7 @@ public class AttachmentService {
         attachmentUploadResponse.setDocType(file.getContentType());
 
         attachmentDAO.savePhotoMeta(attachmentUploadResponse);
-//        fileOperations.uploadFile(file);
+        fileOperations.uploadFile(file);
 
         return attachmentUploadResponse;
     }
