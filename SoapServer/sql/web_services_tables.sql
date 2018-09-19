@@ -1,51 +1,40 @@
-﻿drop database if exists web_services;
-CREATE DATABASE web_services
-WITH OWNER = service
-ENCODING = 'UTF8'
-TABLESPACE = pg_default
-LC_COLLATE = 'English_United States.1252'
-LC_CTYPE = 'English_United States.1252'
-CONNECTION LIMIT = -1;
+﻿DROP DATABASE IF EXISTS web_services;
+CREATE DATABASE web_services /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
 
-drop table if exists customers;
-create table customers(
-   customer_id bigserial not null primary key,
-   first_name varchar(50),
-   last_name varchar(50),
-   age integer
-)
-
-WITH (
-  OIDS=FALSE
+DROP TABLE IF EXISTS web_services.customers;
+CREATE TABLE web_services.customers (
+  customer_id bigint AUTO_INCREMENT UNIQUE NOT NULL,
+  first_name  VARCHAR(50),
+  last_name   VARCHAR(50),
+  age         INTEGER,
+  PRIMARY KEY (customer_id)
 );
-ALTER TABLE public.customers
-  OWNER TO service;
 
-drop table if exists orders;
-create table orders(
-   order_id bigserial not null primary key,
-   customer_id bigserial not null references customers(customer_id) on delete cascade,
-   trans_id bigserial not null,
-   good varchar(50),
-   good_weight double precision,
-   price double precision
-)
-
-WITH (
-  OIDS=FALSE
+DROP TABLE IF EXISTS web_services.orders;
+CREATE TABLE web_services.orders (
+  order_id    BIGINT AUTO_INCREMENT UNIQUE NOT NULL,
+  customer_id BIGINT NOT NULL,
+  trans_id    BIGINT NOT NULL,
+  good        VARCHAR(50),
+  good_weight DOUBLE PRECISION,
+  price       DOUBLE PRECISION,
+  PRIMARY KEY (order_id),
+  FOREIGN KEY (customer_id)
+  REFERENCES web_services.customers (customer_id)
+  ON UPDATE NO ACTION ON DELETE CASCADE
 );
-ALTER TABLE public.orders
-  OWNER TO service;
 
-drop table if exists documents;
-create table documents(
-  doc_id bigserial not null primary key,
-  customer_id bigserial not null references customers(customer_id) on delete cascade,
-  doc_name varchar(100),
-  doc_type varchar(50)
-)
-WITH (
-OIDS=FALSE
+DROP TABLE IF EXISTS web_services.photos;
+CREATE TABLE web_services.photos
+(
+  photo_id    BIGINT AUTO_INCREMENT UNIQUE NOT NULL,
+  customer_id BIGINT NOT NULL,
+  file_name   VARCHAR(100),
+  file_url    VARCHAR(150),
+  file_type   VARCHAR(50),
+  file_size   integer,
+  PRIMARY KEY (photo_id),
+  FOREIGN KEY (customer_id)
+  REFERENCES web_services.customers (customer_id)
+  ON UPDATE NO ACTION ON DELETE CASCADE
 );
-ALTER TABLE public.documents
-  OWNER TO service;
