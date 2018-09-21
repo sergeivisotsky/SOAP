@@ -80,7 +80,7 @@ public class OrderDAO {
         }
     }
 
-    public List<Order> findAllByGood(String product) {
+    public List<Order> findAllByProduct(String product) {
         try {
             return jdbcTemplate.query(SQL_FIND_BY_PRODUCT, new OrderRowMapper(), product);
         } catch (DataAccessException e) {

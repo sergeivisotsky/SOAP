@@ -62,7 +62,7 @@ public class OrderWSImpl implements OrderWS {
 
     @Override
     public List<Order> getAllOrdersByProduct(String product) {
-        return orderService.getAllByGood(product);
+        return orderService.getAllByProduct(product);
     }
 
     @Override

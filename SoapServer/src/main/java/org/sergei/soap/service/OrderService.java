@@ -54,12 +54,12 @@ public class OrderService {
         return orderDAO.findAllByCustomerIdAndProduct(customerId, good);
     }
 
-    public List<Order> getAllByGood(String good) {
+    public List<Order> getAllByProduct(String good) {
         if (!orderDAO.existsByProduct(good)) {
             throw new RecordNotFoundException("No record with this parameters found");
         }
 
-        return orderDAO.findAllByGood(good);
+        return orderDAO.findAllByProduct(good);
     }
 
     public void deleteOrder(Long customerId, Long orderId) {

@@ -18,7 +18,7 @@ public interface OrderWS {
     void saveOrder(@WebParam(name = "customerId")Long customerId,
                    @WebParam(name = "transId") Long transId,
                    @WebParam(name = "product") String product,
-                   @WebParam(name = "goodWeight") double goodWeight,
+                   @WebParam(name = "productWeight") double productWeight,
                    @WebParam(name = "price") double price);
 
     @WebMethod(action = "getAllOrders")
@@ -32,7 +32,7 @@ public interface OrderWS {
     @WebMethod(action = "getAllOrdersByCustomerIdAndProduct")
     @WebResult(name = "outputAllOrdersByCustomerIdAndProduct")
     List<Order> getAllOrdersByCustomerIdAndProduct(@WebParam(name = "inputCustomerId") Long customerId,
-                                                   @WebParam(name = "inputGood") String product);
+                                                   @WebParam(name = "inputProduct") String product);
 
     @WebMethod(action = "getOrderById")
     @WebResult(name = "outputOrderById")
