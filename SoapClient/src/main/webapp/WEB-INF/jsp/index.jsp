@@ -18,9 +18,9 @@
             <c:forEach items="${orders}" var="order">
                 <div>Customer Id: ${order.customerId}</div>
                 <div>Order Id: ${order.orderId}</div>
-                <div>Trans id: ${order.transId}</div>
-                <div>Good: ${order.good}</div>
-                <div>Good weight: ${order.goodWeight}</div>
+                <div>Transaction id: ${order.transId}</div>
+                <div>Product: ${order.product}</div>
+                <div>Product weight: ${order.productWeight}</div>
                 <div>Price: ${order.price}</div>
                 <br>
             </c:forEach>
