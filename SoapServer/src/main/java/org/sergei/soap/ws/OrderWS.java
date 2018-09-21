@@ -17,7 +17,7 @@ public interface OrderWS {
     @WebResult(name = "inputOrder")
     void saveOrder(@WebParam(name = "customerId")Long customerId,
                    @WebParam(name = "transId") Long transId,
-                   @WebParam(name = "good") String good,
+                   @WebParam(name = "product") String product,
                    @WebParam(name = "goodWeight") double goodWeight,
                    @WebParam(name = "price") double price);
 
@@ -29,10 +29,10 @@ public interface OrderWS {
     @WebResult(name = "outputAllOrdersByCustomerId")
     List<Order> getAllOrdersByCustomerId(@WebParam(name = "inputCustomerId") Long customerId);
 
-    @WebMethod(action = "getAllOrdersByCustomerIdAndGood")
-    @WebResult(name = "outputAllOrdersByCustomerIdAndGood")
-    List<Order> getAllOrdersByCustomerIdAndGood(@WebParam(name = "inputCustomerId") Long customerId,
-                                                @WebParam(name = "inputGood") String good);
+    @WebMethod(action = "getAllOrdersByCustomerIdAndProduct")
+    @WebResult(name = "outputAllOrdersByCustomerIdAndProduct")
+    List<Order> getAllOrdersByCustomerIdAndProduct(@WebParam(name = "inputCustomerId") Long customerId,
+                                                   @WebParam(name = "inputGood") String product);
 
     @WebMethod(action = "getOrderById")
     @WebResult(name = "outputOrderById")
@@ -43,9 +43,9 @@ public interface OrderWS {
     Order getOrderByCustomerIdAndOrderId(@WebParam(name = "inputCustomerId") Long customerId,
                                          @WebParam(name = "inputOrderId") Long orderId);
 
-    @WebMethod(action = "getOrderByGood")
-    @WebResult(name = "outputOrderByGood")
-    List<Order> getAllOrdersByGood(@WebParam(name = "inputOrderGood") String good);
+    @WebMethod(action = "getOrderByProduct")
+    @WebResult(name = "outputOrderByProduct")
+    List<Order> getAllOrdersByProduct(@WebParam(name = "inputOrderProduct") String product);
 
     @WebMethod(action = "deleteOrderByCustomerIdAndOrderId")
     @WebResult(name = "deleteOrderData")

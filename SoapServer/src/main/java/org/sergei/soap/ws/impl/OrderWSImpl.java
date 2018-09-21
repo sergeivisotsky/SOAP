@@ -23,13 +23,13 @@ public class OrderWSImpl implements OrderWS {
 
     @Override
     public void saveOrder(Long customerId, Long transId,
-                          String good, double goodWeight, double price) {
+                          String product, double productWeight, double price) {
         Order order = new Order();
 
         order.setCustomerId(customerId);
         order.setTransId(transId);
-        order.setGood(good);
-        order.setGoodWeight(goodWeight);
+        order.setProduct(product);
+        order.setProductWeight(productWeight);
         order.setPrice(price);
 
         orderService.saveOrder(order);
@@ -46,8 +46,8 @@ public class OrderWSImpl implements OrderWS {
     }
 
     @Override
-    public List<Order> getAllOrdersByCustomerIdAndGood(Long customerId, String good) {
-        return orderService.getAllOrdersByCustomerIdAndGood(customerId, good);
+    public List<Order> getAllOrdersByCustomerIdAndProduct(Long customerId, String product) {
+        return orderService.getAllOrdersByCustomerIdAndProduct(customerId, product);
     }
 
     @Override
@@ -61,8 +61,8 @@ public class OrderWSImpl implements OrderWS {
     }
 
     @Override
-    public List<Order> getAllOrdersByGood(String good) {
-        return orderService.getAllByGood(good);
+    public List<Order> getAllOrdersByProduct(String product) {
+        return orderService.getAllByGood(product);
     }
 
     @Override

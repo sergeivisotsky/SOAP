@@ -18,15 +18,15 @@ public class OrderDAO {
 
     private static final String SQL_FIND_ALL = "SELECT * FROM orders";
     private static final String SQL_FIND_BY_ID = "SELECT * FROM orders WHERE order_id = ?";
-    private static final String SQL_FIND_BY_CUSTOMER_ID_AND_GOOD = "SELECT * FROM orders WHERE customer_id = ? AND good = ?";
+    private static final String SQL_FIND_BY_CUSTOMER_ID_AND_PRODUCT = "SELECT * FROM orders WHERE customer_id = ? AND product = ?";
     private static final String SQL_FIND_BY_CUSTOMER_ID_AND_ORDER_ID = "SELECT * FROM orders WHERE customer_id = ? AND order_id = ?";
-    private static final String SQL_FIND_BY_GOOD = "SELECT * FROM orders WHERE good = ?";
+    private static final String SQL_FIND_BY_PRODUCT = "SELECT * FROM orders WHERE product = ?";
     private static final String SQL_EXISTS_BY_ORDER_ID = "SELECT count(*) FROM orders WHERE order_id = ?";
-    private static final String SQL_EXISTS_BY_GOOD = "SELECT count(*) FROM orders WHERE good = ?";
+    private static final String SQL_EXISTS_BY_PRODUCT = "SELECT count(*) FROM orders WHERE product = ?";
     private static final String SQL_EXISTS_BY_CUSTOMER_ID = "SELECT count(*) FROM orders WHERE customer_id = ?";
     private static final String SQL_FIND_ALL_BY_CUSTOMER_ID = "SELECT * FROM orders WHERE customer_id = ?";
-    private static final String SQL_SAVE_ORDER = "INSERT INTO orders(customer_id, trans_id, good, good_weight, price) VALUES (?, ?, ?, ?, ?)";
-    private static final String SQL_DELETE_BY_CUSTOMER_ID_GOOD_ID = "DELETE FROM orders WHERE customer_id = ? AND order_id = ?";
+    private static final String SQL_SAVE_ORDER = "INSERT INTO orders(customer_id, trans_id, product, product_weight, price) VALUES (?, ?, ?, ?, ?)";
+    private static final String SQL_DELETE_BY_CUSTOMER_ID_PRODUCT_ID = "DELETE FROM orders WHERE customer_id = ? AND order_id = ?";
 
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
@@ -36,7 +36,7 @@ public class OrderDAO {
     public void saveOrder(Order order) {
         try {
             jdbcTemplate.update(SQL_SAVE_ORDER, order.getCustomerId(), order.getTransId(),
-                    order.getGood(), order.getGoodWeight(), order.getPrice());
+                    order.getProduct(), order.getProductWeight(), order.getPrice());
             LOGGER.info("Order entity saved");
         } catch (DataAccessException e) {
             LOGGER.error(e.getMessage());
@@ -71,18 +71,18 @@ public class OrderDAO {
         }
     }
 
-    public List<Order> findAllByCustomerIdAndGood(Long customerId, String good) {
+    public List<Order> findAllByCustomerIdAndProduct(Long customerId, String product) {
         try {
-            return jdbcTemplate.query(SQL_FIND_BY_CUSTOMER_ID_AND_GOOD, new OrderRowMapper(), customerId, good);
+            return jdbcTemplate.query(SQL_FIND_BY_CUSTOMER_ID_AND_PRODUCT, new OrderRowMapper(), customerId, product);
         } catch (DataAccessException e) {
             LOGGER.error(e.getMessage());
             return null;
         }
     }
 
-    public List<Order> findAllByGood(String good) {
+    public List<Order> findAllByGood(String product) {
         try {
-            return jdbcTemplate.query(SQL_FIND_BY_GOOD, new OrderRowMapper(), good);
+            return jdbcTemplate.query(SQL_FIND_BY_PRODUCT, new OrderRowMapper(), product);
         } catch (DataAccessException e) {
             LOGGER.error(e.getMessage());
             return null;
@@ -94,8 +94,8 @@ public class OrderDAO {
         return count > 0;
     }
 
-    public boolean existsByGood(String good) {
-        int count = jdbcTemplate.queryForObject(SQL_EXISTS_BY_GOOD, new Object[]{good}, Integer.class);
+    public boolean existsByProduct(String product) {
+        int count = jdbcTemplate.queryForObject(SQL_EXISTS_BY_PRODUCT, new Object[]{product}, Integer.class);
         return count > 0;
     }
 
@@ -115,7 +115,7 @@ public class OrderDAO {
 
     public void delete(Order order) {
         try {
-            jdbcTemplate.update(SQL_DELETE_BY_CUSTOMER_ID_GOOD_ID, order.getCustomerId(), order.getOrderId());
+            jdbcTemplate.update(SQL_DELETE_BY_CUSTOMER_ID_PRODUCT_ID, order.getCustomerId(), order.getOrderId());
             LOGGER.info("Order entity deleted");
         } catch (DataAccessException e) {
             LOGGER.error(e.getMessage());
@@ -131,8 +131,8 @@ public class OrderDAO {
             order.setOrderId(rs.getLong("order_id"));
             order.setCustomerId(rs.getLong("customer_id"));
             order.setTransId(rs.getLong("trans_id"));
-            order.setGood(rs.getString("good"));
-            order.setGoodWeight(rs.getDouble("good_weight"));
+            order.setProduct(rs.getString("product"));
+            order.setProductWeight(rs.getDouble("product_weight"));
             order.setPrice(rs.getDouble("price"));
 
             return order;

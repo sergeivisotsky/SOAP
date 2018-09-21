@@ -46,16 +46,16 @@ public class OrderService {
         return orderDAO.findAllByCustomerId(id);
     }
 
-    public List<Order> getAllOrdersByCustomerIdAndGood(Long customerId, String good) {
-        if (!orderDAO.existsByCustomerId(customerId) || !orderDAO.existsByGood(good)) {
+    public List<Order> getAllOrdersByCustomerIdAndProduct(Long customerId, String good) {
+        if (!orderDAO.existsByCustomerId(customerId) || !orderDAO.existsByProduct(good)) {
             throw new RecordNotFoundException("No record with this parameters found");
         }
 
-        return orderDAO.findAllByCustomerIdAndGood(customerId, good);
+        return orderDAO.findAllByCustomerIdAndProduct(customerId, good);
     }
 
     public List<Order> getAllByGood(String good) {
-        if (!orderDAO.existsByGood(good)) {
+        if (!orderDAO.existsByProduct(good)) {
             throw new RecordNotFoundException("No record with this parameters found");
         }
 
