@@ -22,7 +22,7 @@ public class MainController {
 
     @GetMapping
     public String welcome(Model model) {
-        Long customerId = 5L;
+        Long customerId = 1L;
         Customer customer = customerClientService.getCustomerById(customerId);
         model.addAttribute("customerId", customer.getCustomerId());
         model.addAttribute("firstName", customer.getFirstName());
