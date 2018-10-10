@@ -111,6 +111,11 @@
             <artifactId>jaxws-spring</artifactId>
             <version>1.9</version>
         </dependency>
+        <dependency>
+            <groupId>com.sun.org.apache.xml.internal</groupId>
+            <artifactId>resolver</artifactId>
+            <version>20050927</version>
+        </dependency>
 
         <!--File upload via FTP-->
         <dependency>
