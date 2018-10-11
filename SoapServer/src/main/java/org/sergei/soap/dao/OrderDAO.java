@@ -28,7 +28,7 @@ public class OrderDAO {
     private static final String SQL_SAVE_ORDER = "INSERT INTO orders(customer_id, trans_id, product, product_weight, price) VALUES (?, ?, ?, ?, ?)";
     private static final String SQL_DELETE_BY_CUSTOMER_ID_PRODUCT_ID = "DELETE FROM orders WHERE customer_id = ? AND order_id = ?";
 
-    private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -37,9 +37,9 @@ public class OrderDAO {
         try {
             jdbcTemplate.update(SQL_SAVE_ORDER, order.getCustomerId(), order.getTransId(),
                     order.getProduct(), order.getProductWeight(), order.getPrice());
-            LOGGER.info("Order entity saved");
+            logger.info("Order entity saved");
         } catch (DataAccessException e) {
-            LOGGER.error(e.getMessage());
+            logger.error(e.getMessage());
         }
     }
 
@@ -47,7 +47,7 @@ public class OrderDAO {
         try {
             return jdbcTemplate.query(SQL_FIND_ALL, new OrderRowMapper());
         } catch (DataAccessException e) {
-            LOGGER.error(e.getMessage());
+            logger.error(e.getMessage());
             return null;
         }
     }
@@ -56,7 +56,7 @@ public class OrderDAO {
         try {
             return jdbcTemplate.queryForObject(SQL_FIND_BY_ID, new OrderRowMapper(), id);
         } catch (DataAccessException e) {
-            LOGGER.error(e.getMessage());
+            logger.error(e.getMessage());
             return null;
         }
     }
@@ -66,7 +66,7 @@ public class OrderDAO {
             return jdbcTemplate.queryForObject(SQL_FIND_BY_CUSTOMER_ID_AND_ORDER_ID,
                     new OrderRowMapper(), customerId, orderId);
         } catch (DataAccessException e) {
-            LOGGER.error(e.getMessage());
+            logger.error(e.getMessage());
             return null;
         }
     }
@@ -75,7 +75,7 @@ public class OrderDAO {
         try {
             return jdbcTemplate.query(SQL_FIND_BY_CUSTOMER_ID_AND_PRODUCT, new OrderRowMapper(), customerId, product);
         } catch (DataAccessException e) {
-            LOGGER.error(e.getMessage());
+            logger.error(e.getMessage());
             return null;
         }
     }
@@ -84,7 +84,7 @@ public class OrderDAO {
         try {
             return jdbcTemplate.query(SQL_FIND_BY_PRODUCT, new OrderRowMapper(), product);
         } catch (DataAccessException e) {
-            LOGGER.error(e.getMessage());
+            logger.error(e.getMessage());
             return null;
         }
     }
@@ -108,7 +108,7 @@ public class OrderDAO {
         try {
             return jdbcTemplate.query(SQL_FIND_ALL_BY_CUSTOMER_ID, new OrderRowMapper(), id);
         } catch (DataAccessException e) {
-            LOGGER.error(e.getMessage());
+            logger.error(e.getMessage());
             return null;
         }
     }
@@ -116,9 +116,9 @@ public class OrderDAO {
     public void delete(Order order) {
         try {
             jdbcTemplate.update(SQL_DELETE_BY_CUSTOMER_ID_PRODUCT_ID, order.getCustomerId(), order.getOrderId());
-            LOGGER.info("Order entity deleted");
+            logger.info("Order entity deleted");
         } catch (DataAccessException e) {
-            LOGGER.error(e.getMessage());
+            logger.error(e.getMessage());
         }
     }
 

@@ -13,7 +13,7 @@ import java.util.List;
 
 @Component
 public class CustomerClientService {
-    private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private Customer customer;
 
@@ -24,7 +24,7 @@ public class CustomerClientService {
             Service service = Service.create(wsdlUrl, qname);
             customer = service.getPort(Customer.class);
         } catch (MalformedURLException e) {
-            LOGGER.error(e.getMessage());
+            logger.error(e.getMessage());
         }
     }
 

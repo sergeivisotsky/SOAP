@@ -14,11 +14,14 @@ import java.util.List;
 @Controller
 public class MainController {
 
-    @Autowired
-    private CustomerClientService customerClientService;
+    private final CustomerClientService customerClientService;
+    private final OrderClientService orderClientService;
 
     @Autowired
-    private OrderClientService orderClientService;
+    public MainController(CustomerClientService customerClientService, OrderClientService orderClientService) {
+        this.customerClientService = customerClientService;
+        this.orderClientService = orderClientService;
+    }
 
     @GetMapping
     public String welcome(Model model) {
@@ -29,7 +32,7 @@ public class MainController {
         model.addAttribute("lastName", customer.getLastName());
         model.addAttribute("age", customer.getAge());
 
-        List<Order> orders  = orderClientService.getAllOrdersByCustomerId(customerId);
+        List<Order> orders = orderClientService.getAllOrdersByCustomerId(customerId);
         model.addAttribute("orders", orders);
         return "index";
     }

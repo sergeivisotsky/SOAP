@@ -22,7 +22,7 @@ public class CustomerDAO {
     private static final String SQL_SAVE_CUSTOMER = "INSERT INTO customers(first_name, last_name, age) VALUES (?, ?, ?)";
     private static final String SQL_DELETE_CUSTOMER = "DELETE FROM customers WHERE customer_id = ?";
 
-    private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -30,9 +30,9 @@ public class CustomerDAO {
     public void saveCustomer(Customer customer) {
         try {
             jdbcTemplate.update(SQL_SAVE_CUSTOMER, customer.getFirstName(), customer.getLastName(), customer.getAge());
-            LOGGER.info("Customer entity saved");
+            logger.info("Customer entity saved");
         } catch (DataAccessException e) {
-            LOGGER.error(e.getMessage());
+            logger.error(e.getMessage());
         }
     }
 
@@ -40,7 +40,7 @@ public class CustomerDAO {
         try {
             return jdbcTemplate.query(SQL_FIND_ALL, new CustomerRowMapper());
         } catch (DataAccessException e) {
-            LOGGER.error(e.getMessage());
+            logger.error(e.getMessage());
             return null;
         }
     }
@@ -49,7 +49,7 @@ public class CustomerDAO {
         try {
             return jdbcTemplate.queryForObject(SQL_FIND_BY_ID, new CustomerRowMapper(), id);
         } catch (DataAccessException e) {
-            LOGGER.error(e.getMessage());
+            logger.error(e.getMessage());
             return null;
         }
     }
@@ -62,9 +62,9 @@ public class CustomerDAO {
     public void delete(Customer customer) {
         try {
             jdbcTemplate.update(SQL_DELETE_CUSTOMER, customer.getCustomerId());
-            LOGGER.info("Customer entity deleted");
+            logger.info("Customer entity deleted");
         } catch (Exception e) {
-            LOGGER.error(e.getMessage());
+            logger.error(e.getMessage());
         }
     }
 
