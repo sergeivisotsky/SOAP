@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Entity
+@Table(name = "customers")
 public class Customer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +28,7 @@ public class Customer implements Serializable {
             orphanRemoval = true
     )
     @JoinColumn(name = "customer_id")
-    List<Order> orders = new LinkedList<>();
+    private List<Order> orders = new LinkedList<>();
 
     public Customer() {
     }

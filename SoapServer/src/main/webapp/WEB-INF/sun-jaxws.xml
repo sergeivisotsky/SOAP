@@ -5,4 +5,9 @@
     <endpoint name="CustomerService"
               implementation="org.sergei.soap.ws.impl.CustomerWSImpl"
               url-pattern="/ws/v1/CustomerService"/>
+
+    <!--Order Service SOAP endpoint-->
+    <endpoint name="OrderService"
+              implementation="org.sergei.soap.ws.impl.OrderWSImpl"
+              url-pattern="/ws/v1/OrderService"/>
 </endpoints>

@@ -3,9 +3,7 @@ package org.sergei.soap.ws.impl;
 import org.sergei.soap.dto.CustomerDTO;
 import org.sergei.soap.service.CustomerService;
 import org.sergei.soap.ws.CustomerWS;
-import org.springframework.stereotype.Component;
 
-import javax.jws.WebMethod;
 import javax.jws.WebService;
 import java.util.List;
 
@@ -13,12 +11,7 @@ import java.util.List;
         serviceName = "CustomerService", portName = "Customer")
 public class CustomerWSImpl implements CustomerWS {
 
-    private CustomerService customerService;
-
-    @WebMethod(exclude = true)
-    public void setCustomerService(CustomerService customerService) {
-        this.customerService = customerService;
-    }
+    private CustomerService customerService = new CustomerService();
 
     @Override
     public void saveCustomer(String firstName, String lastName, int age) {

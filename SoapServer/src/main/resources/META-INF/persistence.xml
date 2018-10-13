@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="CustomerData" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>org.sergei.soap.model.Customer</class>
+        <class>org.sergei.soap.model.Order</class>
+
+        <properties>
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL57InnoDBDialect"/>
+            <property name="hibernate.connection.url"
+                      value="jdbc:mysql://localhost:3306/soap_services?allowPublicKeyRetrieval=true&amp;useSSL=false"/>
+            <property name="hibernate.connection.user" value="service"/>
+            <property name="hibernate.connection.password" value="service"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+
+    </persistence-unit>
+</persistence>

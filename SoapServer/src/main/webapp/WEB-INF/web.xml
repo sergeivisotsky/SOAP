@@ -24,13 +24,18 @@
     </listener>
 
     <servlet>
-        <servlet-name>SOAP_customer_service_endpoint</servlet-name>
+        <servlet-name>SOAP_WS</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>SOAP_customer_service_endpoint</servlet-name>
+        <servlet-name>SOAP_WS</servlet-name>
         <url-pattern>/ws/v1/CustomerService</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SOAP_WS</servlet-name>
+        <url-pattern>/ws/v1/OrderService</url-pattern>
     </servlet-mapping>
 
 </web-app>

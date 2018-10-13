@@ -3,9 +3,7 @@ package org.sergei.soap.ws.impl;
 import org.sergei.soap.dto.OrderDTO;
 import org.sergei.soap.service.OrderService;
 import org.sergei.soap.ws.OrderWS;
-import org.springframework.stereotype.Component;
 
-import javax.jws.WebMethod;
 import javax.jws.WebService;
 import java.util.List;
 
@@ -13,12 +11,7 @@ import java.util.List;
         serviceName = "OrderService", portName = "Order")
 public class OrderWSImpl implements OrderWS {
 
-    private OrderService orderService;
-
-    @WebMethod(exclude = true)
-    public void setOrderService(OrderService orderService) {
-        this.orderService = orderService;
-    }
+    private OrderService orderService = new OrderService();
 
     @Override
     public void saveOrder(Long customerId, Long transId,

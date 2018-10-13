@@ -19,14 +19,46 @@ public abstract class GenericHibernateDAO<T extends Serializable> {
         this.persistentClass = persistentClass;
     }
 
-    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
+    EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
+
+    public T findOne(Long aLong) {
+        EntityManager entityManager = factory.createEntityManager();
+        entityManager.getTransaction().begin();
+        T entity = entityManager.find(persistentClass, aLong);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        return entity;
+    }
 
     public List<T> findAll() {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManager entityManager = factory.createEntityManager();
         entityManager.getTransaction().begin();
         List<T> entityList = entityManager.createQuery("FROM " + persistentClass.getName()).getResultList();
         entityManager.getTransaction().commit();
         entityManager.close();
         return entityList;
+    }
+
+    public void save(T entity) {
+        EntityManager entityManager = factory.createEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.persist(entity);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+    }
+
+    public void delete(T entity) {
+        EntityManager entityManager = factory.createEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.remove(entity);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+    }
+
+    @Override
+    protected void finalize() {
+        if (factory != null) {
+            factory.close();
+        }
     }
 }

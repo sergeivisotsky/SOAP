@@ -1,5 +1,6 @@
 package org.sergei.soap.service;
 
+import org.modelmapper.ModelMapper;
 import org.sergei.soap.dao.CustomerDAO;
 import org.sergei.soap.dto.CustomerDTO;
 import org.sergei.soap.model.Customer;
@@ -11,23 +12,25 @@ public class CustomerService {
 
     private CustomerDAO customerDAO = new CustomerDAO();
 
+    private ModelMapper modelMapper = new ModelMapper();
+
+    public CustomerDTO getCustomerById(Long customerId) {
+        Customer customer = customerDAO.findOne(customerId);
+        return modelMapper.map(customer, CustomerDTO.class);
+    }
+
     public List<CustomerDTO> getAllCustomers() {
-//        return customerDAO.findAll();
         List<Customer> customerList = customerDAO.findAll();
-        List<CustomerDTO> customerDTOList = ObjectMapperUtils.mapAll(customerList, CustomerDTO.class);
-        return customerDTOList;
+        return ObjectMapperUtils.mapAll(customerList, CustomerDTO.class);
     }
 
     public void saveCustomer(CustomerDTO customerDTO) {
-//        customerDAO.saveCustomer(customerDTO);
+        Customer customer = modelMapper.map(customerDTO, Customer.class);
+        customerDAO.save(customer);
     }
 
-    public CustomerDTO getCustomerById(Long customerId) {
-//        return customerDAO.findById(customerId);
-        return null;
-    }
-
-    public void deleteCustomer(Long id) {
-//        customerDAO.delete(customerDTO);
+    public void deleteCustomer(Long customerId) {
+        Customer customer = customerDAO.findOne(customerId);
+        customerDAO.delete(customer);
     }
 }
