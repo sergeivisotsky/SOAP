@@ -17,8 +17,8 @@ public interface OrderWS {
     void saveOrder(@WebParam(name = "customerId")Long customerId,
                    @WebParam(name = "transId") Long transId,
                    @WebParam(name = "product") String product,
-                   @WebParam(name = "productWeight") double productWeight,
-                   @WebParam(name = "price") double price);
+                   @WebParam(name = "productWeight") Double productWeight,
+                   @WebParam(name = "price") Double price);
 
     @WebMethod(action = "getAllOrders")
     @WebResult(name = "outputAllOrders")

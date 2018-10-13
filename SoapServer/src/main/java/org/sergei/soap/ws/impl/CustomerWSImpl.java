@@ -14,7 +14,7 @@ public class CustomerWSImpl implements CustomerWS {
     private CustomerService customerService = new CustomerService();
 
     @Override
-    public void saveCustomer(String firstName, String lastName, int age) {
+    public void saveCustomer(String firstName, String lastName, Integer age) {
         CustomerDTO customerDTO = new CustomerDTO();
 
         customerDTO.setFirstName(firstName);

@@ -39,17 +39,18 @@ public class OrderService {
         return ObjectMapperUtils.mapAll(orderList, OrderDTO.class);
     }
 
-    public List<OrderDTO> getAllOrdersByCustomerIdAndProduct(Long customerId, String good) {
-//        return orderDAO.findAllByCustomerIdAndProduct(customerId, good);
-        return null;
+    public List<OrderDTO> getAllOrdersByCustomerIdAndProduct(Long customerId, String product) {
+        List<Order> orderList = orderDAO.findAllByCustomerIdAndProduct(customerId, product);
+        return ObjectMapperUtils.mapAll(orderList, OrderDTO.class);
     }
 
     public List<OrderDTO> getAllByProduct(String product) {
-//        return orderDAO.findAllByProduct(product);
-        return null;
+        List<Order> orderList = orderDAO.findAllByProduct(product);
+        return ObjectMapperUtils.mapAll(orderList, OrderDTO.class);
     }
 
     public void deleteOrder(Long customerId, Long orderId) {
-//        orderDAO.delete(orderDTO);
+        Order order = orderDAO.findOne(orderId);
+        orderDAO.delete(order);
     }
 }

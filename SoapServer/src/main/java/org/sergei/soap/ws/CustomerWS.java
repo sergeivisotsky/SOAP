@@ -1,7 +1,6 @@
 package org.sergei.soap.ws;
 
 import org.sergei.soap.dto.CustomerDTO;
-import org.springframework.stereotype.Component;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -15,7 +14,7 @@ public interface CustomerWS {
     @WebResult(name = "saveCustomer")
     void saveCustomer(@WebParam(name = "firstName") String firstName,
                       @WebParam(name = "lastName") String lastName,
-                      @WebParam(name = "age") int age);
+                      @WebParam(name = "age") Integer age);
 
     @WebMethod(action = "getAllCustomers")
     @WebResult(name = "outputAllCustomers")

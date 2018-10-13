@@ -15,7 +15,7 @@ public class OrderWSImpl implements OrderWS {
 
     @Override
     public void saveOrder(Long customerId, Long transId,
-                          String product, double productWeight, double price) {
+                          String product, Double productWeight, Double price) {
         OrderDTO orderDTO = new OrderDTO();
 
         orderDTO.setCustomerId(customerId);
