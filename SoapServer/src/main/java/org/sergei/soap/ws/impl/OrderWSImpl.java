@@ -1,6 +1,6 @@
 package org.sergei.soap.ws.impl;
 
-import org.sergei.soap.model.Order;
+import org.sergei.soap.dto.OrderDTO;
 import org.sergei.soap.service.OrderService;
 import org.sergei.soap.ws.OrderWS;
 import org.springframework.stereotype.Component;
@@ -9,7 +9,6 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 import java.util.List;
 
-@Component
 @WebService(endpointInterface = "org.sergei.soap.ws.OrderWS",
         serviceName = "OrderService", portName = "Order")
 public class OrderWSImpl implements OrderWS {
@@ -24,44 +23,44 @@ public class OrderWSImpl implements OrderWS {
     @Override
     public void saveOrder(Long customerId, Long transId,
                           String product, double productWeight, double price) {
-        Order order = new Order();
+        OrderDTO orderDTO = new OrderDTO();
 
-        order.setCustomerId(customerId);
-        order.setTransId(transId);
-        order.setProduct(product);
-        order.setProductWeight(productWeight);
-        order.setPrice(price);
+        orderDTO.setCustomerId(customerId);
+        orderDTO.setTransId(transId);
+        orderDTO.setProduct(product);
+        orderDTO.setProductWeight(productWeight);
+        orderDTO.setPrice(price);
 
-        orderService.saveOrder(order);
+        orderService.saveOrder(orderDTO);
     }
 
     @Override
-    public List<Order> getAllOrders() {
+    public List<OrderDTO> getAllOrders() {
         return orderService.getAllOrders();
     }
 
     @Override
-    public List<Order> getAllOrdersByCustomerId(Long customerId) {
+    public List<OrderDTO> getAllOrdersByCustomerId(Long customerId) {
         return orderService.getAllOrdersByCustomerId(customerId);
     }
 
     @Override
-    public List<Order> getAllOrdersByCustomerIdAndProduct(Long customerId, String product) {
+    public List<OrderDTO> getAllOrdersByCustomerIdAndProduct(Long customerId, String product) {
         return orderService.getAllOrdersByCustomerIdAndProduct(customerId, product);
     }
 
     @Override
-    public Order getOrderById(Long orderId) {
+    public OrderDTO getOrderById(Long orderId) {
         return orderService.getOrderById(orderId);
     }
 
     @Override
-    public Order getOrderByCustomerIdAndOrderId(Long customerId, Long orderId) {
+    public OrderDTO getOrderByCustomerIdAndOrderId(Long customerId, Long orderId) {
         return orderService.getOrderByCustomerIdAndOrderId(customerId, orderId);
     }
 
     @Override
-    public List<Order> getAllOrdersByProduct(String product) {
+    public List<OrderDTO> getAllOrdersByProduct(String product) {
         return orderService.getAllByProduct(product);
     }
 

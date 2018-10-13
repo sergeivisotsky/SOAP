@@ -1,39 +1,42 @@
 package org.sergei.soap.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.math.BigDecimal;
 
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
-public class Order {
+@Entity
+public class Order implements Serializable {
 
-    @XmlElement
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "order_id")
     private Long orderId;
 
-    private Long customerId;
-
-    @XmlElement
+    @Column(name = "trans_id")
     private Long transId;
 
-    @XmlElement
+    @Column(name = "product", length = 50)
     private String product;
 
-    @XmlElement
-    private double productWeight;
+    @Column(name = "product_weight")
+    private Double productWeight;
 
-    @XmlElement
-    private double price;
+    @Column(name = "price", precision = 10, scale = 2)
+    private BigDecimal price;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
     public Order() {
     }
 
-    public Order(Long transId, String product, double productWeight, double price) {
+    public Order(Long transId, String product, Double productWeight, BigDecimal price, Customer customer) {
         this.transId = transId;
         this.product = product;
         this.productWeight = productWeight;
         this.price = price;
+        this.customer = customer;
     }
 
     public Long getOrderId() {
@@ -60,27 +63,27 @@ public class Order {
         this.product = product;
     }
 
-    public double getProductWeight() {
+    public Double getProductWeight() {
         return productWeight;
     }
 
-    public void setProductWeight(double productWeight) {
+    public void setProductWeight(Double productWeight) {
         this.productWeight = productWeight;
     }
 
-    public Long getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
-
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

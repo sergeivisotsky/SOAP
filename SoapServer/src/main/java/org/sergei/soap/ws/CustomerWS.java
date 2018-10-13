@@ -1,6 +1,6 @@
 package org.sergei.soap.ws;
 
-import org.sergei.soap.model.Customer;
+import org.sergei.soap.dto.CustomerDTO;
 import org.springframework.stereotype.Component;
 
 import javax.jws.WebMethod;
@@ -9,8 +9,7 @@ import javax.jws.WebResult;
 import javax.jws.WebService;
 import java.util.List;
 
-@Component
-@WebService(name = "Customer", targetNamespace = "http://soap.sergei.org")
+@WebService(name = "Customer", serviceName = "CustomerService", targetNamespace = "http://soap.sergei.org")
 public interface CustomerWS {
     @WebMethod(action = "addCustomer")
     @WebResult(name = "saveCustomer")
@@ -20,11 +19,11 @@ public interface CustomerWS {
 
     @WebMethod(action = "getAllCustomers")
     @WebResult(name = "outputAllCustomers")
-    List<Customer> getAllCustomers();
+    List<CustomerDTO> getAllCustomers();
 
     @WebMethod(action = "getCustomerById")
     @WebResult(name = "outputCustomer")
-    Customer getCustomerById(@WebParam(name = "inputCustomerId") Long customerId);
+    CustomerDTO getCustomerById(@WebParam(name = "inputCustomerId") Long customerId);
 
     @WebMethod(action = "deleteCustomerById")
     @WebResult(name = "deleteCustomerData")

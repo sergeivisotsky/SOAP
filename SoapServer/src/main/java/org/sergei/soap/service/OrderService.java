@@ -1,73 +1,51 @@
 package org.sergei.soap.service;
 
 import org.sergei.soap.dao.OrderDAO;
-import org.sergei.soap.exceptions.RecordNotFoundException;
-import org.sergei.soap.model.Order;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.sergei.soap.dto.OrderDTO;
 
 import java.util.List;
 
-@Service
 public class OrderService {
 
-    @Autowired
     private OrderDAO orderDAO;
 
-    public void saveOrder(Order order) {
-        orderDAO.saveOrder(order);
+    public void saveOrder(OrderDTO orderDTO) {
+//        orderDAO.saveOrder(orderDTO);
     }
 
-    public List<Order> getAllOrders() {
-        return orderDAO.findAll();
+    public List<OrderDTO> getAllOrders() {
+//        return orderDAO.findAll();
+        return null;
     }
 
-    public Order getOrderById(Long id) {
-        if (!orderDAO.existsById(id)) {
-            throw new RecordNotFoundException("No record with this parameters found");
-        }
+    public OrderDTO getOrderById(Long id) {
 
-        return orderDAO.findById(id);
+//        return orderDAO.findById(id);
+        return null;
     }
 
-    public Order getOrderByCustomerIdAndOrderId(Long customerId, Long orderId) {
-        if (!orderDAO.existsByCustomerId(customerId) || !orderDAO.existsById(orderId)) {
-            throw new RecordNotFoundException("No record with this parameters found");
-        }
+    public OrderDTO getOrderByCustomerIdAndOrderId(Long customerId, Long orderId) {
 
-        return orderDAO.findByCustomerIdAndOrderId(customerId, orderId);
+//        return orderDAO.findByCustomerIdAndOrderId(customerId, orderId);
+        return null;
     }
 
-    public List<Order> getAllOrdersByCustomerId(Long id) {
-        if (!orderDAO.existsByCustomerId(id)) {
-            throw new RecordNotFoundException("No record with this parameters found");
-        }
-
-        return orderDAO.findAllByCustomerId(id);
+    public List<OrderDTO> getAllOrdersByCustomerId(Long id) {
+//        return orderDAO.findAllByCustomerId(id);
+        return null;
     }
 
-    public List<Order> getAllOrdersByCustomerIdAndProduct(Long customerId, String good) {
-        if (!orderDAO.existsByCustomerId(customerId) || !orderDAO.existsByProduct(good)) {
-            throw new RecordNotFoundException("No record with this parameters found");
-        }
-
-        return orderDAO.findAllByCustomerIdAndProduct(customerId, good);
+    public List<OrderDTO> getAllOrdersByCustomerIdAndProduct(Long customerId, String good) {
+//        return orderDAO.findAllByCustomerIdAndProduct(customerId, good);
+        return null;
     }
 
-    public List<Order> getAllByProduct(String good) {
-        if (!orderDAO.existsByProduct(good)) {
-            throw new RecordNotFoundException("No record with this parameters found");
-        }
-
-        return orderDAO.findAllByProduct(good);
+    public List<OrderDTO> getAllByProduct(String good) {
+//        return orderDAO.findAllByProduct(good);
+        return null;
     }
 
     public void deleteOrder(Long customerId, Long orderId) {
-        Order order = orderDAO.findByCustomerIdAndOrderId(customerId, orderId);
-        if (!orderDAO.existsByCustomerId(customerId) || !orderDAO.existsById(orderId)) {
-            throw new RecordNotFoundException("No record with this parameters found");
-        }
-
-        orderDAO.delete(order);
+//        orderDAO.delete(orderDTO);
     }
 }

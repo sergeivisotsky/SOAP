@@ -1,41 +1,33 @@
 package org.sergei.soap.service;
 
 import org.sergei.soap.dao.CustomerDAO;
-import org.sergei.soap.exceptions.RecordNotFoundException;
+import org.sergei.soap.dto.CustomerDTO;
 import org.sergei.soap.model.Customer;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.sergei.soap.utils.ObjectMapperUtils;
 
 import java.util.List;
 
-@Service
 public class CustomerService {
 
-    @Autowired
-    private CustomerDAO customerDAO;
+    private CustomerDAO customerDAO = new CustomerDAO();
 
-    public List<Customer> getAllCustomers() {
-        return customerDAO.findAll();
+    public List<CustomerDTO> getAllCustomers() {
+//        return customerDAO.findAll();
+        List<Customer> customerList = customerDAO.findAll();
+        List<CustomerDTO> customerDTOList = ObjectMapperUtils.mapAll(customerList, CustomerDTO.class);
+        return customerDTOList;
     }
 
-    public void saveCustomer(Customer customer) {
-        customerDAO.saveCustomer(customer);
+    public void saveCustomer(CustomerDTO customerDTO) {
+//        customerDAO.saveCustomer(customerDTO);
     }
 
-    public Customer getCustomerById(Long customerId) {
-        if (!customerDAO.existsById(customerId)) {
-            throw new RecordNotFoundException("No record with this parameters found");
-        }
-
-        return customerDAO.findById(customerId);
+    public CustomerDTO getCustomerById(Long customerId) {
+//        return customerDAO.findById(customerId);
+        return null;
     }
 
     public void deleteCustomer(Long id) {
-        Customer customer = customerDAO.findById(id);
-        if (!customerDAO.existsById(id)) {
-            throw new RecordNotFoundException("Record with this parameters not found");
-        }
-
-        customerDAO.delete(customer);
+//        customerDAO.delete(customerDTO);
     }
 }

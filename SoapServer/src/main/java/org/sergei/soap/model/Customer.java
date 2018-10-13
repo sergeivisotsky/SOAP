@@ -1,30 +1,42 @@
 package org.sergei.soap.model;
 
-import javax.xml.bind.annotation.*;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.LinkedList;
+import java.util.List;
 
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
-public class Customer {
-
-    @XmlElement
+@Entity
+public class Customer implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "customer_id")
     private Long customerId;
 
-    @XmlElement
+    @Column(name = "fist_name", length = 50)
     private String firstName;
 
-    @XmlElement
+    @Column(name = "last_name", length = 50)
     private String lastName;
 
-    @XmlElement
-    private int age;
+    @Column(name = "age")
+    private Integer age;
+
+    @OneToMany(
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JoinColumn(name = "customer_id")
+    List<Order> orders = new LinkedList<>();
 
     public Customer() {
     }
 
-    public Customer(String firstName, String lastName, int age) {
+    public Customer(String firstName, String lastName, Integer age, List<Order> orders) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+        this.orders = orders;
     }
 
     public Long getCustomerId() {
@@ -51,11 +63,19 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 }

@@ -6,43 +6,31 @@
 
     <display-name>SOAP Server</display-name>
 
-    <listener>
-        <listener-class>
-            org.springframework.web.context.ContextLoaderListener
-        </listener-class>
-    </listener>
-
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/SOAP_Server-servlet.xml</param-value>
-    </context-param>
-
     <servlet>
-        <servlet-name>SOAP_Server</servlet-name>
-        <servlet-class>
-            org.springframework.web.servlet.DispatcherServlet
-        </servlet-class>
+        <servlet-name>SOAP_Server-welcome</servlet-name>
+        <servlet-class>org.sergei.soap.Welcome</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>SOAP_Server</servlet-name>
+        <servlet-name>SOAP_Server-welcome</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <listener>
+        <listener-class>
+            com.sun.xml.ws.transport.http.servlet.WSServletContextListener
+        </listener-class>
+    </listener>
+
     <servlet>
-        <servlet-name>SOAP_Server-Endpoint</servlet-name>
-        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSSpringServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
+        <servlet-name>SOAP_customer_service_endpoint</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>SOAP_Server-Endpoint</servlet-name>
-        <url-pattern>/ws/v1/CustomerService/*</url-pattern>
+        <servlet-name>SOAP_customer_service_endpoint</servlet-name>
+        <url-pattern>/ws/v1/CustomerService</url-pattern>
     </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>SOAP_Server-Endpoint</servlet-name>
-        <url-pattern>/ws/v1/OrderService/*</url-pattern>
-    </servlet-mapping>
 </web-app>

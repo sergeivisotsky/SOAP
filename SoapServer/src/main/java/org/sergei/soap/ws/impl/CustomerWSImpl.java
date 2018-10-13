@@ -1,6 +1,6 @@
 package org.sergei.soap.ws.impl;
 
-import org.sergei.soap.model.Customer;
+import org.sergei.soap.dto.CustomerDTO;
 import org.sergei.soap.service.CustomerService;
 import org.sergei.soap.ws.CustomerWS;
 import org.springframework.stereotype.Component;
@@ -9,7 +9,6 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 import java.util.List;
 
-@Component
 @WebService(endpointInterface = "org.sergei.soap.ws.CustomerWS",
         serviceName = "CustomerService", portName = "Customer")
 public class CustomerWSImpl implements CustomerWS {
@@ -23,22 +22,22 @@ public class CustomerWSImpl implements CustomerWS {
 
     @Override
     public void saveCustomer(String firstName, String lastName, int age) {
-        Customer customer = new Customer();
+        CustomerDTO customerDTO = new CustomerDTO();
 
-        customer.setFirstName(firstName);
-        customer.setLastName(lastName);
-        customer.setAge(age);
+        customerDTO.setFirstName(firstName);
+        customerDTO.setLastName(lastName);
+        customerDTO.setAge(age);
 
-        customerService.saveCustomer(customer);
+        customerService.saveCustomer(customerDTO);
     }
 
     @Override
-    public List<Customer> getAllCustomers() {
+    public List<CustomerDTO> getAllCustomers() {
         return customerService.getAllCustomers();
     }
 
     @Override
-    public Customer getCustomerById(Long customerId) {
+    public CustomerDTO getCustomerById(Long customerId) {
         return customerService.getCustomerById(customerId);
     }
 
