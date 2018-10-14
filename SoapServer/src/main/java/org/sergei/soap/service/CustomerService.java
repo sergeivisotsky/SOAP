@@ -6,13 +6,18 @@ import org.sergei.soap.dto.CustomerDTO;
 import org.sergei.soap.model.Customer;
 import org.sergei.soap.utils.ObjectMapperUtils;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import java.util.List;
 
+@ApplicationScoped
 public class CustomerService {
 
-    private CustomerDAO customerDAO = new CustomerDAO();
+    @Inject
+    private CustomerDAO customerDAO;
 
-    private ModelMapper modelMapper = new ModelMapper();
+    @Inject
+    private ModelMapper modelMapper;
 
     public CustomerDTO getCustomerById(Long customerId) {
         Customer customer = customerDAO.findOne(customerId);
