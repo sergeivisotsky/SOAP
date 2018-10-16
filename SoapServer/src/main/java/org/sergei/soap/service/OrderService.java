@@ -6,16 +6,11 @@ import org.sergei.soap.dto.OrderDTO;
 import org.sergei.soap.model.Order;
 import org.sergei.soap.utils.ObjectMapperUtils;
 
-import javax.inject.Inject;
 import java.util.List;
 
-//@Dependent
 public class OrderService {
 
-    @Inject
-    private OrderDAO orderDAO;
-
-    //    @Inject
+    private OrderDAO orderDAO = new OrderDAO();
     private ModelMapper modelMapper = new ModelMapper();
 
     public OrderDTO getOrderById(Long orderId) {

@@ -4,7 +4,6 @@ import org.sergei.soap.dto.OrderDTO;
 import org.sergei.soap.service.OrderService;
 import org.sergei.soap.ws.OrderWS;
 
-import javax.inject.Inject;
 import javax.jws.WebService;
 import java.util.List;
 
@@ -12,8 +11,7 @@ import java.util.List;
         serviceName = "OrderService", portName = "Order")
 public class OrderWSImpl implements OrderWS {
 
-    @Inject
-    private OrderService orderService;
+    private OrderService orderService = new OrderService();
 
     @Override
     public void saveOrder(Long customerId, Long transId,

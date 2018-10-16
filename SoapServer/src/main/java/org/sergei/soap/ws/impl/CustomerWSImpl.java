@@ -4,7 +4,6 @@ import org.sergei.soap.dto.CustomerDTO;
 import org.sergei.soap.service.CustomerService;
 import org.sergei.soap.ws.CustomerWS;
 
-import javax.inject.Inject;
 import javax.jws.WebService;
 import java.util.List;
 
@@ -12,8 +11,7 @@ import java.util.List;
         serviceName = "CustomerService", portName = "Customer")
 public class CustomerWSImpl implements CustomerWS {
 
-    @Inject
-    private CustomerService customerService;
+    private CustomerService customerService = new CustomerService();
 
     @Override
     public void saveCustomer(String firstName, String lastName, Integer age) {
