@@ -11,7 +11,7 @@ import java.util.List;
 @SuppressWarnings("unchecked")
 public abstract class GenericHibernateDAO<T extends Serializable> {
 
-    private static final String PERSISTENCE_UNIT = "CustomerData";
+    private static final String PERSISTENCE_UNIT = "org.sergei.soap.jpa";
 
     private Class<T> persistentClass;
 
