@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) Sergei Visotsky, 2018
+ */
+
 package org.sergei.client.service;
 
 import org.sergei.soap.ws.impl.Order;

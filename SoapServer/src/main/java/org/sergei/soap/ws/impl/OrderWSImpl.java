@@ -3,6 +3,10 @@ package org.sergei.soap.ws.impl;
 
 import org.sergei.soap.dto.OrderDTO;
 import org.sergei.soap.service.OrderService;
+/*
+ * Copyright (c) Sergei Visotsky, 2018
+ */
+
 import org.sergei.soap.ws.OrderWS;
 
 import javax.jws.WebService;
