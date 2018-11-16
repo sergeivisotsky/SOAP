@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2018 Sergei Visotsky
- */
-
 package org.sergei.soap.ws;
 
 import org.sergei.soap.dto.CustomerDTO;
@@ -12,6 +8,9 @@ import javax.jws.WebResult;
 import javax.jws.WebService;
 import java.util.List;
 
+/**
+ * @author Sergei Visotsky, 2018
+ */
 @WebService(name = "Customer", serviceName = "CustomerService", targetNamespace = "http://soap.sergei.org")
 public interface CustomerWS {
     @WebMethod(action = "addCustomer")

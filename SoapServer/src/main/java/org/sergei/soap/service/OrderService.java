@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2018 Sergei Visotsky
- */
-
 package org.sergei.soap.service;
 
 import org.modelmapper.ModelMapper;
@@ -12,6 +8,9 @@ import org.sergei.soap.utils.ObjectMapperUtils;
 
 import java.util.List;
 
+/**
+ * @author Sergei Visotsky, 2018
+ */
 public class OrderService {
 
     private OrderDAO orderDAO = new OrderDAO();

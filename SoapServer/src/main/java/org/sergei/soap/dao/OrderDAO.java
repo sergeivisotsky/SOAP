@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2018 Sergei Visotsky
- */
-
 package org.sergei.soap.dao;
 
 import org.sergei.soap.model.Order;
@@ -9,6 +5,9 @@ import org.sergei.soap.model.Order;
 import javax.persistence.EntityManager;
 import java.util.List;
 
+/**
+ * @author Sergei Visotsky, 2018
+ */
 @SuppressWarnings("unchecked")
 public class OrderDAO extends GenericHibernateDAO<Order> {
 

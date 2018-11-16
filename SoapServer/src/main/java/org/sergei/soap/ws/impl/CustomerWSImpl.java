@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2018 Sergei Visotsky
- */
-
 package org.sergei.soap.ws.impl;
 
 import org.sergei.soap.dto.CustomerDTO;
@@ -11,6 +7,9 @@ import org.sergei.soap.ws.CustomerWS;
 import javax.jws.WebService;
 import java.util.List;
 
+/**
+ * @author Sergei Visotsky, 2018
+ */
 @WebService(endpointInterface = "org.sergei.soap.ws.CustomerWS",
         serviceName = "CustomerService", portName = "Customer")
 public class CustomerWSImpl implements CustomerWS {

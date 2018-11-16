@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2018 Sergei Visotsky
- */
-
 package org.sergei.client.service;
 
 import org.sergei.soap.ws.impl.Order;
@@ -15,6 +11,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
+/**
+ * @author Sergei Visotsky, 2018
+ */
 @Component
 public class OrderClientService {
     private Logger logger = LoggerFactory.getLogger(this.getClass());

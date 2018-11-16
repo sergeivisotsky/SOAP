@@ -1,11 +1,6 @@
-/*
- * Copyright (c) 2018 Sergei Visotsky
- */
-
 package org.sergei.soap.ws;
 
 import org.sergei.soap.dto.OrderDTO;
-import org.springframework.stereotype.Component;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -13,12 +8,15 @@ import javax.jws.WebResult;
 import javax.jws.WebService;
 import java.util.List;
 
+/**
+ * @author Sergei Visotsky, 2018
+ */
 @WebService(name = "Order", targetNamespace = "http://soap.sergei.org")
 public interface OrderWS {
 
     @WebMethod(action = "saveOrder")
     @WebResult(name = "inputOrder")
-    void saveOrder(@WebParam(name = "customerId")Long customerId,
+    void saveOrder(@WebParam(name = "customerId") Long customerId,
                    @WebParam(name = "transId") Long transId,
                    @WebParam(name = "product") String product,
                    @WebParam(name = "productWeight") Double productWeight,

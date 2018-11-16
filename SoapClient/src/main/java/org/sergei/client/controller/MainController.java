@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2018 Sergei Visotsky
- */
-
 package org.sergei.client.controller;
 
 import org.sergei.client.service.CustomerClientService;
@@ -15,6 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
+/**
+ * @author Sergei Visotsky, 2018
+ */
 @Controller
 public class MainController {
 
