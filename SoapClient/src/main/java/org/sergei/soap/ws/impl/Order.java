@@ -11,6 +11,7 @@ import javax.xml.ws.Action;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 import org.sergei.soap.ObjectFactory;
+import org.sergei.soap.OrderDTO;
 
 
 /**
@@ -30,14 +31,14 @@ public interface Order {
      * 
      * @param inputCustomerId
      * @return
-     *     returns java.util.List<org.sergei.soap.Order>
+     *     returns java.util.List<org.sergei.soap.OrderDTO>
      */
     @WebMethod(action = "getAllOrdersByCustomerId")
     @WebResult(name = "outputAllOrdersByCustomerId", targetNamespace = "")
     @RequestWrapper(localName = "getAllOrdersByCustomerId", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.GetAllOrdersByCustomerId")
     @ResponseWrapper(localName = "getAllOrdersByCustomerIdResponse", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.GetAllOrdersByCustomerIdResponse")
     @Action(input = "getAllOrdersByCustomerId", output = "http://soap.sergei.org/Order/getAllOrdersByCustomerIdResponse")
-    public List<org.sergei.soap.Order> getAllOrdersByCustomerId(
+    public List<OrderDTO> getAllOrdersByCustomerId(
         @WebParam(name = "inputCustomerId", targetNamespace = "")
         Long inputCustomerId);
 
@@ -46,14 +47,14 @@ public interface Order {
      * @param inputCustomerId
      * @param inputOrderId
      * @return
-     *     returns org.sergei.soap.Order
+     *     returns org.sergei.soap.OrderDTO
      */
     @WebMethod(action = "getOrderByCustomerIdAndOrderId")
     @WebResult(name = "outputOrderByCustomerIdAndOrderId", targetNamespace = "")
     @RequestWrapper(localName = "getOrderByCustomerIdAndOrderId", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.GetOrderByCustomerIdAndOrderId")
     @ResponseWrapper(localName = "getOrderByCustomerIdAndOrderIdResponse", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.GetOrderByCustomerIdAndOrderIdResponse")
     @Action(input = "getOrderByCustomerIdAndOrderId", output = "http://soap.sergei.org/Order/getOrderByCustomerIdAndOrderIdResponse")
-    public org.sergei.soap.Order getOrderByCustomerIdAndOrderId(
+    public OrderDTO getOrderByCustomerIdAndOrderId(
         @WebParam(name = "inputCustomerId", targetNamespace = "")
         Long inputCustomerId,
         @WebParam(name = "inputOrderId", targetNamespace = "")
@@ -63,30 +64,54 @@ public interface Order {
      * 
      * @param inputOrderProduct
      * @return
-     *     returns java.util.List<org.sergei.soap.Order>
+     *     returns java.util.List<org.sergei.soap.OrderDTO>
      */
     @WebMethod(action = "getOrderByProduct")
     @WebResult(name = "outputOrderByProduct", targetNamespace = "")
     @RequestWrapper(localName = "getAllOrdersByProduct", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.GetAllOrdersByProduct")
     @ResponseWrapper(localName = "getAllOrdersByProductResponse", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.GetAllOrdersByProductResponse")
     @Action(input = "getOrderByProduct", output = "http://soap.sergei.org/Order/getAllOrdersByProductResponse")
-    public List<org.sergei.soap.Order> getAllOrdersByProduct(
+    public List<OrderDTO> getAllOrdersByProduct(
         @WebParam(name = "inputOrderProduct", targetNamespace = "")
         String inputOrderProduct);
+
+    /**
+     * 
+     * @param product
+     * @param transId
+     * @param price
+     * @param customerId
+     * @param productWeight
+     */
+    @WebMethod(action = "saveOrder")
+    @RequestWrapper(localName = "saveOrder", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.SaveOrder")
+    @ResponseWrapper(localName = "saveOrderResponse", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.SaveOrderResponse")
+    @Action(input = "saveOrder", output = "http://soap.sergei.org/Order/saveOrderResponse")
+    public void saveOrder(
+        @WebParam(name = "customerId", targetNamespace = "")
+        Long customerId,
+        @WebParam(name = "transId", targetNamespace = "")
+        Long transId,
+        @WebParam(name = "product", targetNamespace = "")
+        String product,
+        @WebParam(name = "productWeight", targetNamespace = "")
+        Double productWeight,
+        @WebParam(name = "price", targetNamespace = "")
+        Double price);
 
     /**
      * 
      * @param inputCustomerId
      * @param inputProduct
      * @return
-     *     returns java.util.List<org.sergei.soap.Order>
+     *     returns java.util.List<org.sergei.soap.OrderDTO>
      */
     @WebMethod(action = "getAllOrdersByCustomerIdAndProduct")
     @WebResult(name = "outputAllOrdersByCustomerIdAndProduct", targetNamespace = "")
     @RequestWrapper(localName = "getAllOrdersByCustomerIdAndProduct", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.GetAllOrdersByCustomerIdAndProduct")
     @ResponseWrapper(localName = "getAllOrdersByCustomerIdAndProductResponse", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.GetAllOrdersByCustomerIdAndProductResponse")
     @Action(input = "getAllOrdersByCustomerIdAndProduct", output = "http://soap.sergei.org/Order/getAllOrdersByCustomerIdAndProductResponse")
-    public List<org.sergei.soap.Order> getAllOrdersByCustomerIdAndProduct(
+    public List<OrderDTO> getAllOrdersByCustomerIdAndProduct(
         @WebParam(name = "inputCustomerId", targetNamespace = "")
         Long inputCustomerId,
         @WebParam(name = "inputProduct", targetNamespace = "")
@@ -109,53 +134,29 @@ public interface Order {
 
     /**
      * 
-     * @return
-     *     returns java.util.List<org.sergei.soap.Order>
-     */
-    @WebMethod(action = "getAllOrders")
-    @WebResult(name = "outputAllOrders", targetNamespace = "")
-    @RequestWrapper(localName = "getAllOrders", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.GetAllOrders")
-    @ResponseWrapper(localName = "getAllOrdersResponse", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.GetAllOrdersResponse")
-    @Action(input = "getAllOrders", output = "http://soap.sergei.org/Order/getAllOrdersResponse")
-    public List<org.sergei.soap.Order> getAllOrders();
-
-    /**
-     * 
-     * @param product
-     * @param transId
-     * @param price
-     * @param customerId
-     * @param productWeight
-     */
-    @WebMethod(action = "saveOrder")
-    @RequestWrapper(localName = "saveOrder", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.SaveOrder")
-    @ResponseWrapper(localName = "saveOrderResponse", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.SaveOrderResponse")
-    @Action(input = "saveOrder", output = "http://soap.sergei.org/Order/saveOrderResponse")
-    public void saveOrder(
-        @WebParam(name = "customerId", targetNamespace = "")
-        Long customerId,
-        @WebParam(name = "transId", targetNamespace = "")
-        Long transId,
-        @WebParam(name = "product", targetNamespace = "")
-        String product,
-        @WebParam(name = "productWeight", targetNamespace = "")
-        double productWeight,
-        @WebParam(name = "price", targetNamespace = "")
-        double price);
-
-    /**
-     * 
      * @param inputOrderId
      * @return
-     *     returns org.sergei.soap.Order
+     *     returns org.sergei.soap.OrderDTO
      */
     @WebMethod(action = "getOrderById")
     @WebResult(name = "outputOrderById", targetNamespace = "")
     @RequestWrapper(localName = "getOrderById", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.GetOrderById")
     @ResponseWrapper(localName = "getOrderByIdResponse", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.GetOrderByIdResponse")
     @Action(input = "getOrderById", output = "http://soap.sergei.org/Order/getOrderByIdResponse")
-    public org.sergei.soap.Order getOrderById(
+    public OrderDTO getOrderById(
         @WebParam(name = "inputOrderId", targetNamespace = "")
         Long inputOrderId);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<org.sergei.soap.OrderDTO>
+     */
+    @WebMethod(action = "getAllOrders")
+    @WebResult(name = "outputAllOrders", targetNamespace = "")
+    @RequestWrapper(localName = "getAllOrders", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.GetAllOrders")
+    @ResponseWrapper(localName = "getAllOrdersResponse", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.GetAllOrdersResponse")
+    @Action(input = "getAllOrders", output = "http://soap.sergei.org/Order/getAllOrdersResponse")
+    public List<OrderDTO> getAllOrders();
 
 }

@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="outputOrderByCustomerIdAndOrderId" type="{http://soap.sergei.org}order" minOccurs="0"/>
+ *         &lt;element name="outputOrderByCustomerIdAndOrderId" type="{http://soap.sergei.org}orderDTO" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,17 +31,17 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class GetOrderByCustomerIdAndOrderIdResponse {
 
-    protected Order outputOrderByCustomerIdAndOrderId;
+    protected OrderDTO outputOrderByCustomerIdAndOrderId;
 
     /**
      * Gets the value of the outputOrderByCustomerIdAndOrderId property.
      * 
      * @return
      *     possible object is
-     *     {@link Order }
+     *     {@link OrderDTO }
      *     
      */
-    public Order getOutputOrderByCustomerIdAndOrderId() {
+    public OrderDTO getOutputOrderByCustomerIdAndOrderId() {
         return outputOrderByCustomerIdAndOrderId;
     }
 
@@ -50,10 +50,10 @@ public class GetOrderByCustomerIdAndOrderIdResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link Order }
+     *     {@link OrderDTO }
      *     
      */
-    public void setOutputOrderByCustomerIdAndOrderId(Order value) {
+    public void setOutputOrderByCustomerIdAndOrderId(OrderDTO value) {
         this.outputOrderByCustomerIdAndOrderId = value;
     }
 

@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="outputCustomer" type="{http://soap.sergei.org}customer" minOccurs="0"/>
+ *         &lt;element name="outputCustomer" type="{http://soap.sergei.org}customerDTO" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,17 +31,17 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class GetCustomerByIdResponse {
 
-    protected Customer outputCustomer;
+    protected CustomerDTO outputCustomer;
 
     /**
      * Gets the value of the outputCustomer property.
      * 
      * @return
      *     possible object is
-     *     {@link Customer }
+     *     {@link CustomerDTO }
      *     
      */
-    public Customer getOutputCustomer() {
+    public CustomerDTO getOutputCustomer() {
         return outputCustomer;
     }
 
@@ -50,10 +50,10 @@ public class GetCustomerByIdResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link Customer }
+     *     {@link CustomerDTO }
      *     
      */
-    public void setOutputCustomer(Customer value) {
+    public void setOutputCustomer(CustomerDTO value) {
         this.outputCustomer = value;
     }
 

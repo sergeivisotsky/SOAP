@@ -19,8 +19,8 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="customerId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="transId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="product" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="productWeight" type="{http://www.w3.org/2001/XMLSchema}double"/>
- *         &lt;element name="price" type="{http://www.w3.org/2001/XMLSchema}double"/>
+ *         &lt;element name="productWeight" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
+ *         &lt;element name="price" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -42,8 +42,8 @@ public class SaveOrder {
     protected Long customerId;
     protected Long transId;
     protected String product;
-    protected double productWeight;
-    protected double price;
+    protected Double productWeight;
+    protected Double price;
 
     /**
      * Gets the value of the customerId property.
@@ -120,32 +120,48 @@ public class SaveOrder {
     /**
      * Gets the value of the productWeight property.
      * 
+     * @return
+     *     possible object is
+     *     {@link Double }
+     *     
      */
-    public double getProductWeight() {
+    public Double getProductWeight() {
         return productWeight;
     }
 
     /**
      * Sets the value of the productWeight property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link Double }
+     *     
      */
-    public void setProductWeight(double value) {
+    public void setProductWeight(Double value) {
         this.productWeight = value;
     }
 
     /**
      * Gets the value of the price property.
      * 
+     * @return
+     *     possible object is
+     *     {@link Double }
+     *     
      */
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
     /**
      * Sets the value of the price property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link Double }
+     *     
      */
-    public void setPrice(double value) {
+    public void setPrice(Double value) {
         this.price = value;
     }
 

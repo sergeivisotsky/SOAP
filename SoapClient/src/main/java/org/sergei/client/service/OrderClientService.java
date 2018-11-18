@@ -16,22 +16,22 @@ import java.util.List;
  */
 @Component
 public class OrderClientService {
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private static final Logger LOGGER = LoggerFactory.getLogger(OrderClientService.class);
 
     private Order order;
 
     public OrderClientService() {
         try {
-            URL wsdlUrl = new URL("http://localhost:8080/soap/ws/v1/OrderService?wsdl");
+            URL wsdlUrl = new URL("http://localhost:8079/soap/ws/v1/OrderService?wsdl");
             QName qname = new QName("http://impl.ws.soap.sergei.org/", "OrderService");
             Service service = Service.create(wsdlUrl, qname);
             order = service.getPort(Order.class);
         } catch (MalformedURLException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
     }
 
-    public List<org.sergei.soap.Order> getAllOrdersByCustomerId(Long customerId) {
+    public List<org.sergei.soap.OrderDTO> getAllOrdersByCustomerId(Long customerId) {
         return order.getAllOrdersByCustomerId(customerId);
     }
 }

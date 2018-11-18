@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="outputOrderById" type="{http://soap.sergei.org}order" minOccurs="0"/>
+ *         &lt;element name="outputOrderById" type="{http://soap.sergei.org}orderDTO" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,17 +31,17 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class GetOrderByIdResponse {
 
-    protected Order outputOrderById;
+    protected OrderDTO outputOrderById;
 
     /**
      * Gets the value of the outputOrderById property.
      * 
      * @return
      *     possible object is
-     *     {@link Order }
+     *     {@link OrderDTO }
      *     
      */
-    public Order getOutputOrderById() {
+    public OrderDTO getOutputOrderById() {
         return outputOrderById;
     }
 
@@ -50,10 +50,10 @@ public class GetOrderByIdResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link Order }
+     *     {@link OrderDTO }
      *     
      */
-    public void setOutputOrderById(Order value) {
+    public void setOutputOrderById(OrderDTO value) {
         this.outputOrderById = value;
     }
 

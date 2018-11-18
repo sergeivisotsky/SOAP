@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="outputAllCustomers" type="{http://soap.sergei.org}customer" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="outputAllCustomers" type="{http://soap.sergei.org}customerDTO" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class GetAllCustomersResponse {
 
-    protected List<Customer> outputAllCustomers;
+    protected List<CustomerDTO> outputAllCustomers;
 
     /**
      * Gets the value of the outputAllCustomers property.
@@ -53,13 +53,13 @@ public class GetAllCustomersResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Customer }
+     * {@link CustomerDTO }
      * 
      * 
      */
-    public List<Customer> getOutputAllCustomers() {
+    public List<CustomerDTO> getOutputAllCustomers() {
         if (outputAllCustomers == null) {
-            outputAllCustomers = new ArrayList<Customer>();
+            outputAllCustomers = new ArrayList<CustomerDTO>();
         }
         return this.outputAllCustomers;
     }

@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="firstName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="lastName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="age" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="age" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -37,7 +37,7 @@ public class SaveCustomer {
 
     protected String firstName;
     protected String lastName;
-    protected int age;
+    protected Integer age;
 
     /**
      * Gets the value of the firstName property.
@@ -90,16 +90,24 @@ public class SaveCustomer {
     /**
      * Gets the value of the age property.
      * 
+     * @return
+     *     possible object is
+     *     {@link Integer }
+     *     
      */
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
     /**
      * Sets the value of the age property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link Integer }
+     *     
      */
-    public void setAge(int value) {
+    public void setAge(Integer value) {
         this.age = value;
     }
 

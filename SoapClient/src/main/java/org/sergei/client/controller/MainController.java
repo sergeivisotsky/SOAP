@@ -2,8 +2,8 @@ package org.sergei.client.controller;
 
 import org.sergei.client.service.CustomerClientService;
 import org.sergei.client.service.OrderClientService;
-import org.sergei.soap.Customer;
-import org.sergei.soap.Order;
+import org.sergei.soap.CustomerDTO;
+import org.sergei.soap.OrderDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,13 +29,13 @@ public class MainController {
     @GetMapping
     public String welcome(Model model) {
         Long customerId = 1L;
-        Customer customer = customerClientService.getCustomerById(customerId);
+        CustomerDTO customer = customerClientService.getCustomerById(customerId);
         model.addAttribute("customerId", customer.getCustomerId());
         model.addAttribute("firstName", customer.getFirstName());
         model.addAttribute("lastName", customer.getLastName());
         model.addAttribute("age", customer.getAge());
 
-        List<Order> orders = orderClientService.getAllOrdersByCustomerId(customerId);
+        List<OrderDTO> orders = orderClientService.getAllOrdersByCustomerId(customerId);
         model.addAttribute("orders", orders);
         return "index";
     }

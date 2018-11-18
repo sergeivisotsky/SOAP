@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="outputAllOrdersByCustomerIdAndProduct" type="{http://soap.sergei.org}order" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="outputAllOrdersByCustomerIdAndProduct" type="{http://soap.sergei.org}orderDTO" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class GetAllOrdersByCustomerIdAndProductResponse {
 
-    protected List<Order> outputAllOrdersByCustomerIdAndProduct;
+    protected List<OrderDTO> outputAllOrdersByCustomerIdAndProduct;
 
     /**
      * Gets the value of the outputAllOrdersByCustomerIdAndProduct property.
@@ -53,13 +53,13 @@ public class GetAllOrdersByCustomerIdAndProductResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Order }
+     * {@link OrderDTO }
      * 
      * 
      */
-    public List<Order> getOutputAllOrdersByCustomerIdAndProduct() {
+    public List<OrderDTO> getOutputAllOrdersByCustomerIdAndProduct() {
         if (outputAllOrdersByCustomerIdAndProduct == null) {
-            outputAllOrdersByCustomerIdAndProduct = new ArrayList<Order>();
+            outputAllOrdersByCustomerIdAndProduct = new ArrayList<OrderDTO>();
         }
         return this.outputAllOrdersByCustomerIdAndProduct;
     }

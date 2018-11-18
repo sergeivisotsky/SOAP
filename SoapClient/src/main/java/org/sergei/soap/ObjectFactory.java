@@ -1,4 +1,9 @@
 
+/*
+ * Copyright (c) 2018 Sergei Visotsky
+ *
+ */
+
 package org.sergei.soap;
 
 import javax.xml.bind.JAXBElement;
@@ -30,6 +35,7 @@ public class ObjectFactory {
     private final static QName _GetOrderByCustomerIdAndOrderId_QNAME = new QName("http://soap.sergei.org", "getOrderByCustomerIdAndOrderId");
     private final static QName _GetOrderById_QNAME = new QName("http://soap.sergei.org", "getOrderById");
     private final static QName _GetOrderByCustomerIdAndOrderIdResponse_QNAME = new QName("http://soap.sergei.org", "getOrderByCustomerIdAndOrderIdResponse");
+    private final static QName _OrderDTO_QNAME = new QName("http://soap.sergei.org", "orderDTO");
     private final static QName _GetAllOrders_QNAME = new QName("http://soap.sergei.org", "getAllOrders");
     private final static QName _SaveOrderResponse_QNAME = new QName("http://soap.sergei.org", "saveOrderResponse");
     private final static QName _GetAllOrdersByCustomerIdAndProductResponse_QNAME = new QName("http://soap.sergei.org", "getAllOrdersByCustomerIdAndProductResponse");
@@ -39,7 +45,6 @@ public class ObjectFactory {
     private final static QName _GetAllOrdersByCustomerId_QNAME = new QName("http://soap.sergei.org", "getAllOrdersByCustomerId");
     private final static QName _GetAllOrdersByCustomerIdResponse_QNAME = new QName("http://soap.sergei.org", "getAllOrdersByCustomerIdResponse");
     private final static QName _DeleteOrderByCustomerIdAndOrderId_QNAME = new QName("http://soap.sergei.org", "deleteOrderByCustomerIdAndOrderId");
-    private final static QName _Order_QNAME = new QName("http://soap.sergei.org", "order");
     private final static QName _GetAllOrdersByProductResponse_QNAME = new QName("http://soap.sergei.org", "getAllOrdersByProductResponse");
 
     /**
@@ -55,6 +60,14 @@ public class ObjectFactory {
      */
     public GetOrderByCustomerIdAndOrderIdResponse createGetOrderByCustomerIdAndOrderIdResponse() {
         return new GetOrderByCustomerIdAndOrderIdResponse();
+    }
+
+    /**
+     * Create an instance of {@link OrderDTO }
+     * 
+     */
+    public OrderDTO createOrderDTO() {
+        return new OrderDTO();
     }
 
     /**
@@ -178,14 +191,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Order }
-     * 
-     */
-    public Order createOrder() {
-        return new Order();
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link DeleteOrderByCustomerIdAndOrderIdResponse }{@code >}}
      * 
      */
@@ -237,6 +242,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://soap.sergei.org", name = "getOrderByCustomerIdAndOrderIdResponse")
     public JAXBElement<GetOrderByCustomerIdAndOrderIdResponse> createGetOrderByCustomerIdAndOrderIdResponse(GetOrderByCustomerIdAndOrderIdResponse value) {
         return new JAXBElement<GetOrderByCustomerIdAndOrderIdResponse>(_GetOrderByCustomerIdAndOrderIdResponse_QNAME, GetOrderByCustomerIdAndOrderIdResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link OrderDTO }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "orderDTO")
+    public JAXBElement<OrderDTO> createOrderDTO(OrderDTO value) {
+        return new JAXBElement<OrderDTO>(_OrderDTO_QNAME, OrderDTO.class, null, value);
     }
 
     /**
@@ -318,15 +332,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://soap.sergei.org", name = "deleteOrderByCustomerIdAndOrderId")
     public JAXBElement<DeleteOrderByCustomerIdAndOrderId> createDeleteOrderByCustomerIdAndOrderId(DeleteOrderByCustomerIdAndOrderId value) {
         return new JAXBElement<DeleteOrderByCustomerIdAndOrderId>(_DeleteOrderByCustomerIdAndOrderId_QNAME, DeleteOrderByCustomerIdAndOrderId.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Order }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://soap.sergei.org", name = "order")
-    public JAXBElement<Order> createOrder(Order value) {
-        return new JAXBElement<Order>(_Order_QNAME, Order.class, null, value);
     }
 
     /**
