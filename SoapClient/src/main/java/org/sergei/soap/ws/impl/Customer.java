@@ -1,9 +1,4 @@
 
-/*
- * Copyright (c) 2018 Sergei Visotsky
- *
- */
-
 package org.sergei.soap.ws.impl;
 
 import java.util.List;
@@ -37,8 +32,8 @@ public interface Customer {
      * @param inputCustomerId
      */
     @WebMethod(action = "deleteCustomerById")
-    @RequestWrapper(localName = "deleteCustomer", targetNamespace = "http://soap.sergei.org", className = "DeleteCustomer")
-    @ResponseWrapper(localName = "deleteCustomerResponse", targetNamespace = "http://soap.sergei.org", className = "DeleteCustomerResponse")
+    @RequestWrapper(localName = "deleteCustomer", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.DeleteCustomer")
+    @ResponseWrapper(localName = "deleteCustomerResponse", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.DeleteCustomerResponse")
     @Action(input = "deleteCustomerById", output = "http://soap.sergei.org/Customer/deleteCustomerResponse")
     public void deleteCustomer(
         @WebParam(name = "inputCustomerId", targetNamespace = "")
@@ -47,12 +42,12 @@ public interface Customer {
     /**
      * 
      * @return
-     *     returns java.util.List<CustomerDTO>
+     *     returns java.util.List<org.sergei.soap.CustomerDTO>
      */
     @WebMethod(action = "getAllCustomers")
     @WebResult(name = "outputAllCustomers", targetNamespace = "")
-    @RequestWrapper(localName = "getAllCustomers", targetNamespace = "http://soap.sergei.org", className = "GetAllCustomers")
-    @ResponseWrapper(localName = "getAllCustomersResponse", targetNamespace = "http://soap.sergei.org", className = "GetAllCustomersResponse")
+    @RequestWrapper(localName = "getAllCustomers", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.GetAllCustomers")
+    @ResponseWrapper(localName = "getAllCustomersResponse", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.GetAllCustomersResponse")
     @Action(input = "getAllCustomers", output = "http://soap.sergei.org/Customer/getAllCustomersResponse")
     public List<CustomerDTO> getAllCustomers();
 
@@ -60,12 +55,12 @@ public interface Customer {
      * 
      * @param inputCustomerId
      * @return
-     *     returns CustomerDTO
+     *     returns org.sergei.soap.CustomerDTO
      */
     @WebMethod(action = "getCustomerById")
     @WebResult(name = "outputCustomer", targetNamespace = "")
-    @RequestWrapper(localName = "getCustomerById", targetNamespace = "http://soap.sergei.org", className = "GetCustomerById")
-    @ResponseWrapper(localName = "getCustomerByIdResponse", targetNamespace = "http://soap.sergei.org", className = "GetCustomerByIdResponse")
+    @RequestWrapper(localName = "getCustomerById", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.GetCustomerById")
+    @ResponseWrapper(localName = "getCustomerByIdResponse", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.GetCustomerByIdResponse")
     @Action(input = "getCustomerById", output = "http://soap.sergei.org/Customer/getCustomerByIdResponse")
     public CustomerDTO getCustomerById(
         @WebParam(name = "inputCustomerId", targetNamespace = "")
@@ -78,8 +73,8 @@ public interface Customer {
      * @param age
      */
     @WebMethod(action = "addCustomer")
-    @RequestWrapper(localName = "saveCustomer", targetNamespace = "http://soap.sergei.org", className = "SaveCustomer")
-    @ResponseWrapper(localName = "saveCustomerResponse", targetNamespace = "http://soap.sergei.org", className = "SaveCustomerResponse")
+    @RequestWrapper(localName = "saveCustomer", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.SaveCustomer")
+    @ResponseWrapper(localName = "saveCustomerResponse", targetNamespace = "http://soap.sergei.org", className = "org.sergei.soap.SaveCustomerResponse")
     @Action(input = "addCustomer", output = "http://soap.sergei.org/Customer/saveCustomerResponse")
     public void saveCustomer(
         @WebParam(name = "firstName", targetNamespace = "")

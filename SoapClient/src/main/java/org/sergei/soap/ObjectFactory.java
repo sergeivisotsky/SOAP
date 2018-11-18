@@ -1,9 +1,4 @@
 
-/*
- * Copyright (c) 2018 Sergei Visotsky
- *
- */
-
 package org.sergei.soap;
 
 import javax.xml.bind.JAXBElement;
