@@ -3,7 +3,7 @@ package org.sergei.soap.dao;
 import org.sergei.soap.model.Customer;
 
 /**
- * @author Sergei Visotsky, 2018
+ * @author Sergei Visotsky
  */
 @SuppressWarnings("unchecked")
 public class CustomerDAO extends GenericHibernateDAO<Customer> {

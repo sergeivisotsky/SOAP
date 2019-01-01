@@ -9,7 +9,7 @@ import org.sergei.soap.utils.ObjectMapperUtils;
 import java.util.List;
 
 /**
- * @author Sergei Visotsky, 2018
+ * @author Sergei Visotsky
  */
 public class OrderService {
 

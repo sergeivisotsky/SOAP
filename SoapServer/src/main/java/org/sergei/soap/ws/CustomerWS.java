@@ -9,7 +9,7 @@ import javax.jws.WebService;
 import java.util.List;
 
 /**
- * @author Sergei Visotsky, 2018
+ * @author Sergei Visotsky
  */
 @WebService(name = "Customer", serviceName = "CustomerService", targetNamespace = "http://soap.sergei.org")
 public interface CustomerWS {

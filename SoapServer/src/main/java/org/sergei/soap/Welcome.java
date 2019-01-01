@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * @author Sergei Visotsky, 2018
+ * @author Sergei Visotsky
  */
 public class Welcome extends HttpServlet {
     @Override

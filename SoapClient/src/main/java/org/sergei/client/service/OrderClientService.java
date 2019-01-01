@@ -12,7 +12,7 @@ import java.net.URL;
 import java.util.List;
 
 /**
- * @author Sergei Visotsky, 2018
+ * @author Sergei Visotsky
  */
 @Component
 public class OrderClientService {

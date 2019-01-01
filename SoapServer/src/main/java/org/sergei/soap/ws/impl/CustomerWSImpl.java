@@ -8,7 +8,7 @@ import javax.jws.WebService;
 import java.util.List;
 
 /**
- * @author Sergei Visotsky, 2018
+ * @author Sergei Visotsky
  */
 @WebService(endpointInterface = "org.sergei.soap.ws.CustomerWS",
         serviceName = "CustomerService", portName = "Customer")

@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 /**
- * @author Sergei Visotsky, 2018
+ * @author Sergei Visotsky
  */
 @SuppressWarnings("unchecked")
 public class OrderDAO extends GenericHibernateDAO<Order> {
